@@ -7,7 +7,9 @@ Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
+Plug 'pangloss/vim-javascript'
+Plug 'jparise/vim-graphql'
 
 call plug#end()
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -26,3 +28,6 @@ set number
 set path+=**
 inoremap jk <Esc>
 
+set tabstop=2
+set shiftwidth=2
+set expandtab
