@@ -1,0 +1,5 @@
+[user]
+	name = charlieroth
+	email = roth47@purdue.edu
+[core]
+	excludesfile = ~/.gitignore_global

@@ -6,9 +6,9 @@ Plug 'tpope/vim-commentary'
 Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 Plug 'itchyny/lightline.vim'
-
-" Reason
-Plug 'reasonml-editor/vim-reason-plus'
+Plug 'w0rp/ale'
+Plug 'skywind3000/asyncrun.vim' 
+Plug 'slashmili/alchemist.vim'
 
 " GraphQL
 Plug 'jparise/vim-graphql'
@@ -17,14 +17,21 @@ Plug 'jparise/vim-graphql'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
+
+" Elixir
+Plug 'elixir-editors/vim-elixir'
 call plug#end()
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
+ 
 syntax on
 hi comment ctermfg=yellow
 
 set showcmd
+set number
+set ruler
 set showmode
 set autoindent
 set smartindent
@@ -48,6 +55,9 @@ nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
 
 " Ale
+let g:ale_sign_error='●' " Less aggressive than the default '>>'
+let g:ale_sign_warning='.'
+let g:ale_lint_on_enter=0 " Less distracting when opening a new file
 let g:ale_lint_on_save=1
 let g:ale_lint_on_text_changed=0
 let g:ale_linters = {
@@ -60,3 +70,6 @@ let g:ctrlp_cmd='CtrlP'
 let g:ctrlp_working_path_mode='ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("t")': ['<c-a>'],
+    \ }
