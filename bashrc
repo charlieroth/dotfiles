@@ -12,10 +12,11 @@ alias gst="git status"
 alias gct="git checkout"
 alias gb="git branch"
 alias gc="git commit"
+alias ga="git add"
 alias gcm="git commit -m"
 alias gcam="git commit -am"
-alias gpho="git push origin"
-alias gplo="git pull origin"
+alias gpusho="git push origin"
+alias gpullo="git pull origin"
 
 # tmux
 alias mux="tmux"
