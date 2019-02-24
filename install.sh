@@ -6,7 +6,7 @@
 # Variables
 DIR=~/dotfiles
 OLD_DIR=~/dotfiles_old
-FILES="bashrc vimrc bash_profile"
+FILES="bashrc vimrc bash_profile gitconfig"
 
 # Create dotfiles_old in home directory
 echo "Creating $OLD_DIR for backup of any existing dotfiles in ~"
@@ -23,4 +23,5 @@ for FILE in $FILES; do
   echo "Moving any existing dot files from ~ to $OLD_DIR"
   mv ~/.$FILE ~/dotfiles_old/
   echo "Creating symlink to $FILE in home directory"
+  ln -s $DIR/$FILE ~/.$FILE
 done

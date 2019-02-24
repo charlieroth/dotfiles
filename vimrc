@@ -1,14 +1,14 @@
 set nocompatible
 filetype on
 call plug#begin('~/.vim/plugged')
-" Editor Plugins
+
+" Editor
 Plug 'tpope/vim-commentary'
 Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
 Plug 'skywind3000/asyncrun.vim' 
-Plug 'slashmili/alchemist.vim'
 
 " GraphQL
 Plug 'jparise/vim-graphql'
@@ -20,6 +20,7 @@ Plug 'mxw/vim-jsx'
 
 " Elixir
 Plug 'elixir-editors/vim-elixir'
+Plug 'slashmili/alchemist.vim'
 call plug#end()
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -47,6 +48,7 @@ set expandtab
 
 " Tabs
 nnoremap tn :tabnew<Space>
+nnoremap tm :tabmove<Space>
 
 nnoremap tk :tabnext<CR>
 nnoremap tj :tabprev<CR>

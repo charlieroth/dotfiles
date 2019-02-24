@@ -1,11 +1,8 @@
 # vim
-alias vim="vim -u ~/dotfiles/.vimrc"
-alias vrc="vim ~/dotfiles/.vimrc"
-alias svrc="source ~/dotfiles/.vimrc"
+alias vrc="vim ~/dotfiles/vimrc"
 
 # bash_profile
-alias vbash="vim ~/.bash_profile"
-alias sbash="source ~/.bash_profile"
+alias vbash="vim ~/dotfiles/bash_profile"
 
 # purdue
 alias purdue="ssh roth47@data.cs.purdue.edu"
@@ -35,4 +32,3 @@ alias polls="cd ~/dev/school/cs407/polls"
 
 # nvm
 nvm use >/dev/null
-source /Users/charlie/alacritty-completions.bash
