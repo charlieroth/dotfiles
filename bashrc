@@ -1,5 +1,6 @@
 # bash commands
 alias ll="ls -1a"
+alias cl="clear"
 
 # vim
 alias vrc="vim ~/dotfiles/vimrc"
