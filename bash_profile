@@ -1,3 +1,5 @@
+#!/bin/sh
+
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$MAVEN_HOME/bin
@@ -20,5 +22,5 @@ npm-latest() { npm info "$1" | grep latest; }
 killport() { lsof -i tcp:"$*" | awk 'NR!=1 {print $2}' | xargs kill -9; }
 
 # shell prompt
-export PS1="\w >>> "
+export PS1="\u: \W $ "
 source ~/.bashrc

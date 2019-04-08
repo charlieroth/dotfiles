@@ -2,4 +2,7 @@
 	name = charlieroth
 	email = roth47@purdue.edu
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
+
+[log]
+  date = relative
