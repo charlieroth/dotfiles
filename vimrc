@@ -1,14 +1,12 @@
 set nocompatible
 filetype on
-call plug#begin('~/.vim/plugged')
 
+call plug#begin('~/.vim/plugged')
 " Editor
 Plug 'tpope/vim-commentary'
 Plug 'ervandew/supertab'
 Plug 'Raimondi/delimitMate'
 Plug 'itchyny/lightline.vim'
-Plug 'w0rp/ale'
-Plug 'skywind3000/asyncrun.vim' 
 
 " GraphQL
 Plug 'jparise/vim-graphql'
@@ -17,16 +15,11 @@ Plug 'jparise/vim-graphql'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
-
-" Elixir
-Plug 'elixir-editors/vim-elixir'
-Plug 'slashmili/alchemist.vim'
 call plug#end()
 
+" CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
- 
 syntax on
 hi comment ctermfg=yellow
 
@@ -56,15 +49,6 @@ nnoremap tj :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
 
-" Ale
-let g:ale_sign_error='●' " Less aggressive than the default '>>'
-let g:ale_sign_warning='.'
-let g:ale_lint_on_enter=0 " Less distracting when opening a new file
-let g:ale_lint_on_save=1
-let g:ale_lint_on_text_changed=0
-let g:ale_linters = {
-\ 'javascript': ['eslint'],
-\}
 
 " CtrlP
 let g:ctrlp_map='<c-p>'
