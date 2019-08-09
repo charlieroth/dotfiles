@@ -6,7 +6,7 @@
 # Variables
 DIR=~/dotfiles
 OLD_DIR=~/dotfiles_old
-FILES="bashrc vimrc bash_profile gitconfig"
+FILES="gitconfig vimrc zshrc"
 
 # Create dotfiles_old in home directory
 echo "Creating $OLD_DIR for backup of any existing dotfiles in ~"
