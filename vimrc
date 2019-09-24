@@ -7,6 +7,8 @@ Plug 'itchyny/lightline.vim'
 
 " Syntax 
 Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'dense-analysis/ale'
 call plug#end()
 
