@@ -51,8 +51,15 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Version Control
+alias ga="git add ."
+alias gs="git status"
+alias gcm="git commit -m"
+alias gpm="git push origin master"
+# Frequently Used Files
+alias vrc="vim ~/.vimrc"
+alias vzrc="vim ~/.zshrc"
+alias vmux="vim ~/.tmux.conf"
 
 # User configuration
 export ZSH=$HOME/.oh-my-zsh
