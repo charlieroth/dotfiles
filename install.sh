@@ -6,7 +6,7 @@
 # Variables
 DIR=~/dotfiles
 OLD_DIR=~/dotfiles_old
-FILES="gitconfig vimrc zshrc"
+FILES="gitconfig vimrc zshrc tmux.conf"
 
 # Create dotfiles_old in home directory
 echo "Creating $OLD_DIR for backup of any existing dotfiles in ~"
