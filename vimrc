@@ -1,6 +1,8 @@
 call plug#begin('~/.vim/plugged')
-" Editor
+" Editor/Colors
 Plug 'itchyny/lightline.vim'
+
+" Linting/Completion
 Plug 'dense-analysis/ale'
 
 " Elixir 
@@ -16,10 +18,14 @@ call plug#end()
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-syntax on
-filetype plugin indent on
 
 hi comment ctermfg=yellow
+
+" Colors
+set background=dark
+syntax on
+filetype plugin indent on
+let g:lightline = { 'colorscheme': 'wombat' }
 
 set laststatus=2
 set tabstop=2
@@ -28,6 +34,7 @@ set nocompatible
 set noshowmode
 set showcmd
 set ruler
+set number
 set autoindent
 set smartindent
 set nowrap
@@ -37,11 +44,6 @@ set wildmenu
 set path+=**
 set expandtab
 inoremap jk <Esc>
-
-" Lightline
-let g:lightline = {
-  \'colorscheme': 'wombat',
-  \}
 
 " Tabs
 nnoremap tn :tabnew<Space>
