@@ -48,8 +48,8 @@ alias ggpush="git push origin $(git_current_branch)"
 alias ggpull="git pull origin $(git_current_branch)"
 
 # Appirio
-alias iu-api="cd ~/workspaces/iu-cc/api"
-alias iu-client="cd ~/workspaces/iu-cc/client"
+alias iu-api="cd ~/workspace/iu-cc/api"
+alias iu-client="cd ~/workspace/iu-cc/client"
 
 # Frequently Used Files
 alias vrc="vim ~/.vimrc"
