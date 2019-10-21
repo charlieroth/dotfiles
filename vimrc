@@ -2,9 +2,6 @@ call plug#begin('~/.vim/plugged')
 " Editor/Colors
 Plug 'itchyny/lightline.vim'
 
-" Linting/Completion
-Plug 'dense-analysis/ale'
-
 " Elixir 
 Plug 'elixir-editors/vim-elixir'
 
