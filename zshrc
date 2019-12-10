@@ -53,6 +53,9 @@ alias vmux="vim ~/.tmux.conf"
 alias postgres_start="pg_ctl -D /usr/local/var/postgres start"
 alias postgres_stop="pg_ctl -D /usr/local/var/postgres stop"
 
+# Urbit
+alias urb="./urbit waltyr-dacmus"
+
 export ZSH=$HOME/.oh-my-zsh
 export PATH=~/.npm-global/bin:$PATH
 export TERM=xterm-256color

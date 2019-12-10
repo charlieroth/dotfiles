@@ -6,41 +6,34 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim " ctrlp
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim' " Command bar colors
 Plug 'elixir-editors/vim-elixir' " Elixir
-Plug 'nanotech/jellybeans.vim' " Jellybeans theme
 Plug 'leafgarland/typescript-vim' " Typescript syntax
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Conquer of Completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Completion
+Plug 'scrooloose/nerdtree' " File Explorer
+Plug 'scrooloose/nerdcommenter' " Orgasmic Commenting
 call plug#end()
 
-" This is a comment
-
-" Colors
-set background=dark
-colorscheme jellybeans
-syntax on
-
-function CocCurrentFunction()
-    return get(b:, 'coc_current_function', '')
-endfunction
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 let g:lightline = { 
     \ 'colorscheme': 'wombat',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ 'component_function': {
-    \   'cocstatus': 'coc#status',
-    \   'currentfunction': 'CocCurrentFunction'
+    \             [ 'readonly', 'filename', 'modified' ] ]
     \ },
     \ }
 
 let mapleader = ","
 
+" Colors
+set background=dark
+colorscheme nofrils-dark
+syntax on
+
 imap jk <esc>
 imap <C-t> <esc>:tabnew<CR>
 map <Leader>o :CtrlP<CR>
 map <Leader>b :CtrlPBuffer<CR>
-map <Leader>l :CocList diagnostics<CR>
+map <Leader>n :NERDTreeToggle<CR>
 
 set backspace=indent,eol,start
 set history=500
@@ -55,25 +48,31 @@ set smarttab
 set noincsearch
 set ignorecase smartcase
 set laststatus=2
-set tabstop=4
+set tabstop=2
 set shiftwidth=4
-set relativenumber
-set number
+set cmdheight=4
 set autoindent
 set smartindent
-set so=7
+set so=5
 set mouse=a
 set wildmenu
 set path+=**
 set expandtab
 set updatetime=300
 set signcolumn=yes
+set number
 
+" coc
+" Coc Config
+xmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
-
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -81,7 +80,20 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Tabs
 nnoremap tn :tabnew<Space>
