@@ -49,7 +49,7 @@ set noincsearch
 set ignorecase smartcase
 set laststatus=2
 set tabstop=2
-set shiftwidth=4
+set shiftwidth=2
 set cmdheight=2
 set autoindent
 set smartindent
