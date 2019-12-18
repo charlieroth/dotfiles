@@ -4,12 +4,14 @@ filetype plugin indent on
 set runtimepath^=~/.vim/bundle/ctrlp.vim " ctrlp
 
 call plug#begin('~/.vim/plugged')
+Plug 'flazz/vim-colorschemes' " Colorschemes
 Plug 'itchyny/lightline.vim' " Command bar colors
-Plug 'elixir-editors/vim-elixir' " Elixir
-Plug 'leafgarland/typescript-vim' " Typescript syntax
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Completion
 Plug 'scrooloose/nerdtree' " File Explorer
 Plug 'scrooloose/nerdcommenter' " Orgasmic Commenting
+Plug 'elixir-editors/vim-elixir' " Elixir
+Plug 'leafgarland/typescript-vim' " Typescript syntax
+Plug 'maxmellon/vim-jsx-pretty' " Jsx Syntax
 call plug#end()
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -25,15 +27,12 @@ let g:lightline = {
 let mapleader = ","
 
 " Colors
-set background=dark
-colorscheme nofrils-dark
 syntax on
 
 imap jk <esc>
 imap <C-t> <esc>:tabnew<CR>
 map <Leader>o :CtrlP<CR>
 map <Leader>b :CtrlPBuffer<CR>
-map <Leader>n :NERDTreeToggle<CR>
 
 set backspace=indent,eol,start
 set history=500
@@ -53,7 +52,6 @@ set shiftwidth=2
 set cmdheight=2
 set autoindent
 set smartindent
-set so=5
 set mouse=a
 set wildmenu
 set path+=**
@@ -62,8 +60,11 @@ set updatetime=300
 set signcolumn=yes
 set number
 
-" coc
-" Coc Config
+" NERDTree
+map <Leader>n :NERDTreeToggle<CR>
+let g:NERDSpaceDelims=1
+
+" Coc 
 xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
 

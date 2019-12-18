@@ -1,7 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-# User configuration
-
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
@@ -31,9 +27,7 @@ alias cl="clear"
 
 # Version Control
 alias ga="git add ."
-alias gc="git commit"
-alias gcm="git commit -m"
-alias gcam="git commit -a -m"
+alias gcm="git commit -m $1"
 alias gct="git checkout"
 alias gctb="git checkout -b"
 alias gd="git diff"
@@ -44,6 +38,10 @@ alias ggpull="git pull origin $(git_current_branch)"
 # Appirio
 alias iu-api="cd ~/workspace/iu-cc/api"
 alias iu-client="cd ~/workspace/iu-cc/client"
+
+# Polls
+alias pweb="cd ~/workspace/polls_web/"
+alias papi="cd ~/workspace/polls_api/"
 
 # Frequently Used Files
 alias vrc="vim ~/.vimrc"
@@ -57,6 +55,7 @@ alias postgres_stop="pg_ctl -D /usr/local/var/postgres stop"
 # Urbit
 alias urb="./urbit waltyr-dacmus"
 
+# PATH exports 
 export ZSH=$HOME/.oh-my-zsh
 export PATH=~/.npm-global/bin:$PATH
 export TERM=xterm-256color
