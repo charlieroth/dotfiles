@@ -9,9 +9,10 @@ Plug 'itchyny/lightline.vim' " Command bar colors
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Completion
 Plug 'scrooloose/nerdtree' " File Explorer
 Plug 'scrooloose/nerdcommenter' " Orgasmic Commenting
-Plug 'elixir-editors/vim-elixir' " Elixir
-Plug 'leafgarland/typescript-vim' " Typescript syntax
 Plug 'maxmellon/vim-jsx-pretty' " Jsx Syntax
+Plug 'elixir-editors/vim-elixir' " Elixir
+Plug 'leafgarland/typescript-vim' " Typescript
+Plug 'rust-lang/rust.vim' " Rust 
 call plug#end()
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
