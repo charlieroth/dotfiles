@@ -37,12 +37,8 @@ alias ggpush="git push origin $(git_current_branch)"
 alias ggpull="git pull origin $(git_current_branch)"
 
 # Appirio
-alias iu-api="cd ~/workspace/iu-cc/api"
-alias iu-client="cd ~/workspace/iu-cc/client"
-
-# Polls
-alias pweb="cd ~/workspace/polls_web/"
-alias papi="cd ~/workspace/polls_api/"
+alias iu-api="cd ~/appirio/iu-cc/api"
+alias iu-client="cd ~/appirio/iu-cc/client"
 
 # Frequently Used Files
 alias vrc="vim ~/.vimrc"
