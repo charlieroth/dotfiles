@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim' " Command bar colors
 Plug 'scrooloose/nerdtree' " File Explorer
 Plug 'scrooloose/nerdcommenter' " Orgasmic Commenting
-Plug 'rust-lang/rust.vim' " Rust 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -23,7 +23,7 @@ let g:lightline = {
 let mapleader = ","
 
 " Colors
-syntax off
+syntax on
 
 imap jk <esc>
 imap <C-t> <esc>:tabnew<CR>
