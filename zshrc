@@ -25,6 +25,7 @@ plugins=(git tmux)
 # General Aliases
 alias cl="clear"
 alias lp="lsof -Pi | grep LISTEN"
+alias lsn="ps -ef | grep node"
 
 # Version Control
 alias ga="git add ."
@@ -55,5 +56,6 @@ alias urb="./urbit waltyr-dacmus"
 # PATH exports 
 export ZSH=$HOME/.oh-my-zsh
 export PATH=~/.npm-global/bin:$PATH
+export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
 export TERM=xterm-256color
 source $ZSH/oh-my-zsh.sh

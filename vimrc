@@ -90,11 +90,11 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Keybindings
+" vvvvvvvvvv Coc vvvvvvvvvv
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-" ^^^^^^^^^^ Coc ^^^^^^^^^^
 
 " vvvvvvvvvv Vim Tabs vvvvvvvvvv
 nnoremap tn :tabnew<Space>
@@ -103,7 +103,6 @@ nnoremap tk :tabnext<CR>
 nnoremap tj :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
-" ^^^^^^^^^^ Vim Tabs ^^^^^^^^^^
 
 " vvvvvvvvvv CtrlP vvvvvvvvvv
 map <Leader>o :CtrlP<CR>
@@ -119,4 +118,3 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<c-a>'],
     \ }
-" ^^^^^^^^^^ CtrlP ^^^^^^^^^^
