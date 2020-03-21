@@ -22,9 +22,6 @@ function git_current_branch() {
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git tmux)
 
-# General Aliases
-alias cl="clear"
-
 # Version Control
 alias ga="git add ."
 alias gcm="git commit -m $1"
@@ -35,14 +32,6 @@ alias gs="git status"
 alias ggpush="git push origin $(git_current_branch)"
 alias ggpull="git pull origin $(git_current_branch)"
 
-# Appirio
-alias iu-api="cd ~/workspace/iu-cc/api"
-alias iu-client="cd ~/workspace/iu-cc/client"
-
-# Polls
-alias pweb="cd ~/workspace/polls_web/"
-alias papi="cd ~/workspace/polls_api/"
-
 # Frequently Used Files
 alias vrc="vim ~/.vimrc"
 alias vzrc="vim ~/.zshrc"
@@ -52,14 +41,8 @@ alias vmux="vim ~/.tmux.conf"
 alias postgres_start="pg_ctl -D /usr/local/var/postgres start"
 alias postgres_stop="pg_ctl -D /usr/local/var/postgres stop"
 
-# Urbit
-alias urb="./urbit waltyr-dacmus"
-
 # PATH exports 
 export ZSH=$HOME/.oh-my-zsh
 export PATH=~/.npm-global/bin:$PATH
 export TERM=xterm-256color
 source $ZSH/oh-my-zsh.sh
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
