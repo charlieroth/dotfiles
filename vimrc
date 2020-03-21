@@ -3,27 +3,10 @@ filetype plugin indent on
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim " ctrlp
 
-call plug#begin('~/.vim/plugged')
-Plug 'itchyny/lightline.vim' " Command bar colors
-Plug 'scrooloose/nerdtree' " File Explorer
-Plug 'scrooloose/nerdcommenter' " Orgasmic Commenting
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-call plug#end()
-
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-let g:lightline = { 
-    \ 'colorscheme': 'wombat',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ }
-
 let mapleader = ","
 
 " Colors
-syntax on
+syntax off
 
 imap jk <esc>
 imap <C-t> <esc>:tabnew<CR>
@@ -52,13 +35,7 @@ set mouse=a
 set wildmenu
 set path+=**
 set expandtab
-set updatetime=300
-set signcolumn=yes
 set number
-
-" NERDTree
-map <Leader>n :NERDTreeToggle<CR>
-let g:NERDSpaceDelims=1
 
 " Tabs
 nnoremap tn :tabnew<Space>
@@ -73,7 +50,7 @@ let g:ctrlp_map='<c-p>'
 let g:ctrlp_cmd='CtrlP'
 let g:ctrlp_working_path_mode='ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git\|dist\'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git\|dist\|bin\'
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<c-a>'],
     \ }
