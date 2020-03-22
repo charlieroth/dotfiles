@@ -4,10 +4,8 @@ filetype plugin indent on
 set runtimepath^=~/.vim/bundle/ctrlp.vim " start ctrlp on boot
 
 call plug#begin('~/.vim/plugged')
-Plug 'flazz/vim-colorschemes' " Colorschemes
 Plug 'itchyny/lightline.vim' " Command bar colors
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Code Completion
-Plug 'elixir-editors/vim-elixir'
 Plug 'scrooloose/nerdtree' " File Explorer
 Plug 'scrooloose/nerdcommenter' " Orgasmic Commenting
 Plug 'leafgarland/typescript-vim' " Typescript syntax
