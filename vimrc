@@ -3,10 +3,15 @@ filetype plugin indent on
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim " ctrlp
 
+call plug#begin('~/.vim/plugged')
+Plug 'urbit/hoon.vim'
+Plug 'elixir-editors/vim-elixir'
+call plug#end()
+
 let mapleader = ","
 
 " Colors
-syntax off
+syntax on
 
 imap jk <esc>
 imap <C-t> <esc>:tabnew<CR>
