@@ -4,9 +4,7 @@ filetype plugin indent on
 set runtimepath^=~/.vim/bundle/ctrlp.vim " start ctrlp on boot
 
 call plug#begin('~/.vim/plugged')
-Plug 'itchyny/lightline.vim' " Command bar colors
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Code Completion
-Plug 'scrooloose/nerdtree' " File Explorer
 Plug 'scrooloose/nerdcommenter' " Orgasmic Commenting
 Plug 'leafgarland/typescript-vim' " Typescript syntax
 call plug#end()
@@ -43,23 +41,11 @@ set expandtab
 set updatetime=300
 set signcolumn=yes
 set number
-" ^^^^^^^^^^ Vim Config ^^^^^^^^^^ 
-
-" vvvvvvvvvv Lightline vvvvvvvvvv
-let g:lightline = { 
-    \ 'colorscheme': 'wombat',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ }
-" ^^^^^^^^^^ Lightline ^^^^^^^^^^
 
 " vvvvvvvvvv NERDTree vvvvvvvvvv
 map <Leader>n :NERDTreeToggle<CR>
 let g:NERDSpaceDelims=1
 let NERDTreeShowHidden=1
-" ^^^^^^^^^^ NERDTree ^^^^^^^^^^
 
 " vvvvvvvvvv Coc vvvvvvvvvv
 xmap <leader>f <Plug>(coc-format-selected)
