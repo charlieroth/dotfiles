@@ -37,7 +37,7 @@ alias gs="git status"
 alias ggpush="git push origin $(git_current_branch)"
 alias ggpull="git pull origin $(git_current_branch)"
 
-# Appirio
+# Projects
 alias iu-api="cd ~/appirio/iu-cc/api"
 alias iu-client="cd ~/appirio/iu-cc/client"
 
@@ -50,8 +50,8 @@ alias vmux="vim ~/.tmux.conf"
 alias postgres_start="pg_ctl -D /usr/local/var/postgres start"
 alias postgres_stop="pg_ctl -D /usr/local/var/postgres stop"
 
-# Urbit
-alias urb="./urbit waltyr-dacmus"
+# RabbitMQ
+alias rabbitmq-stop="rabbitmqctl stop"
 
 # PATH exports 
 export ZSH=$HOME/.oh-my-zsh
