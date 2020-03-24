@@ -6,6 +6,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim " ctrlp
 call plug#begin('~/.vim/plugged')
 Plug 'urbit/hoon.vim'
 Plug 'elixir-editors/vim-elixir'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 let mapleader = ","
