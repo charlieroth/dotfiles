@@ -1,5 +1,5 @@
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="lambda"
 
 # Outputs the name of the current branch
 # Usage example: git pull origin $(git_current_branch)
@@ -28,8 +28,8 @@ alias lp="lsof -Pi | grep LISTEN"
 alias lsn="ps -ef | grep node"
 
 # Version Control
-alias ga="git add ."
-alias gcm="git commit -m $1"
+alias ga="git add"
+alias gcm="git commit -m"
 alias gct="git checkout"
 alias gctb="git checkout -b"
 alias gd="git diff"
