@@ -1,5 +1,5 @@
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="lambda"
 
 # Outputs the name of the current branch
 # Usage example: git pull origin $(git_current_branch)
@@ -36,6 +36,9 @@ alias ggpull="git pull origin $(git_current_branch)"
 alias vrc="vim ~/.vimrc"
 alias vzrc="vim ~/.zshrc"
 alias vmux="vim ~/.tmux.conf"
+
+# RabbitMQ
+alias rabbitmq-stop="rabbitmqctl stop"
 
 # Postgres
 alias postgres_start="pg_ctl -D /usr/local/var/postgres start"
