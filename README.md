@@ -49,11 +49,11 @@ Add `code` command to `PATH`: `Cmd+Shift+P`, `Shell Command: Install 'code' comm
     "editor.fontLigatures": true,
     "editor.fontFamily": "Dank Mono",
     "editor.fontWeight": "600",
-    "editor.overviewRulerBorder": false, // removes border from overview ruler (located on the right, same position as the scrollbar)
-    "editor.hideCursorInOverviewRuler": true, // hides cursor mark in the overview ruler
-    "editor.occurrencesHighlight": false, // removes highlights occurrences (still works when you select a word)
-    "editor.matchBrackets": "always", // removes the highlight of matching brackets (I use Subtle Match Brackets extension for this)
-    "editor.glyphMargin": true, // removes the space used mainly for debugging indicators
+    "editor.overviewRulerBorder": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.occurrencesHighlight": false,
+    "editor.matchBrackets": "always",
+    "editor.glyphMargin": true,
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
@@ -61,7 +61,7 @@ Add `code` command to `PATH`: `Cmd+Shift+P`, `Shell Command: Install 'code' comm
         "source.organizeImports": true
     },
     "editor.renderWhitespace": "none",
-    "explorer.openEditors.visible": 0, // removes the open editors section at the top of the sidebar, you can see the opened files with ⌘ + ⌥ + Tab
+    "explorer.openEditors.visible": 0,
     "explorer.confirmDelete": false,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -76,10 +76,10 @@ Add `code` command to `PATH`: `Cmd+Shift+P`, `Shell Command: Install 'code' comm
     },
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "Monokai Pro",
-    "workbench.activityBar.visible": true, // removes the activity bar (the 4 icons at the left of the screen), so now you will have to open the explorer, git, debugger and extension with shortcuts or through the Command Palette
-    "workbench.editor.showIcons": true, // removes icon from opened files in tabs
-    "workbench.editor.tabCloseButton": "right", // removes cross icon from tabs
-    "workbench.statusBar.visible": true, // removes the status bar
+    "workbench.activityBar.visible": true,
+    "workbench.editor.showIcons": true,
+    "workbench.editor.tabCloseButton": "right",
+    "workbench.statusBar.visible": true,
     "window.zoomLevel": 0,
     "vim.easymotion": true,
     "vim.sneak": true,
