@@ -2,6 +2,8 @@ set nocompatible
 filetype plugin indent on
 set runtimepath^=~/.vim/bundle/ctrlp.vim " start ctrlp on boot
 
+
+" --- Vim Plug 
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Code Completion
 Plug 'scrooloose/nerdcommenter' " Orgasmic Commenting
@@ -10,9 +12,9 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 
+" --- Statusline
 set statusline=\ %f
 set statusline+=%=
 set statusline+=\%{FugitiveStatusline()}
@@ -20,6 +22,8 @@ set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
 set statusline+=\ %l:%c
 
+
+" --- General Vim 
 let mapleader = ","
 imap jk <esc>
 imap <C-t> <esc>:tabnew<CR>
@@ -53,16 +57,26 @@ set colorcolumn=120
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 set number
 
+
+" --- Vim Sessions
 let g:session_directory = '~/vim-sessions'
 exec 'nnoremap <leader>ss :mks! ' . g:session_directory . '/*.vim<C-D><BS><BS><BS><BS><BS>'
 exec 'nnoremap <leader>sr :so ' . g:session_directory . '/*.vim<C-D><BS><BS><BS><BS><BS>'
-
 " Load/save file view open enter/exit
 autocmd BufWinLeave "." mkview
 autocmd BufWinEnter "." silent loadview
 
+" --- Coc
+" Format with prettier on save
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " Use tab for trigger completion 
 inoremap <silent><expr> <TAB>
@@ -70,14 +84,7 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
 inoremap <silent><expr> <c-space> coc#refresh()
-
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 nmap <silent> gd <Plug>(coc-definition)
@@ -85,6 +92,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+
+" --- Tabs
 nnoremap tn :tabnew<Space>
 nnoremap tm :tabmove<Space>
 nnoremap tk :tabnext<CR>
@@ -92,7 +101,8 @@ nnoremap tj :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
 
-" --- CtrlP Configuration
+
+" --- CtrlP
 map <Leader>o :CtrlP<CR>
 map <Leader>b :CtrlPBuffer<CR>
 let g:ctrlp_map='<c-p>'
@@ -107,7 +117,7 @@ let g:ctrlp_prompt_mappings = {
     \ }
 
 
-" --- NERDTree Configuration
+" --- NERDTree
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 map <Leader>n :NERDTreeToggle<CR>
