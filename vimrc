@@ -6,13 +6,24 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Code Completion
 Plug 'scrooloose/nerdcommenter' " Orgasmic Commenting
 Plug 'leafgarland/typescript-vim' " Typescript syntax
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+
+set statusline=\ %f
+set statusline+=%=
+set statusline+=\%{FugitiveStatusline()}
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %l:%c
+
 let mapleader = ","
 imap jk <esc>
 imap <C-t> <esc>:tabnew<CR>
+
 syntax on
 set backspace=indent,eol,start
 set history=500
@@ -38,11 +49,17 @@ set path+=**
 set expandtab
 set updatetime=300
 set signcolumn=yes
+set colorcolumn=120
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 set number
 
 let g:session_directory = '~/vim-sessions'
 exec 'nnoremap <leader>ss :mks! ' . g:session_directory . '/*.vim<C-D><BS><BS><BS><BS><BS>'
 exec 'nnoremap <leader>sr :so ' . g:session_directory . '/*.vim<C-D><BS><BS><BS><BS><BS>'
+
+" Load/save file view open enter/exit
+autocmd BufWinLeave "." mkview
+autocmd BufWinEnter "." silent loadview
 
 xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
@@ -75,6 +92,7 @@ nnoremap tj :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
 
+" --- CtrlP Configuration
 map <Leader>o :CtrlP<CR>
 map <Leader>b :CtrlPBuffer<CR>
 let g:ctrlp_map='<c-p>'
@@ -87,3 +105,10 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<c-a>'],
     \ }
+
+
+" --- NERDTree Configuration
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+map <Leader>n :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
