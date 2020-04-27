@@ -4,7 +4,7 @@
 
 - Install Alfred: `https://www.alfredapp.com`
 - Install Homebrew: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && brew --version`
-- Install zsh: `brew install zsh
+- Install zsh: `brew install zsh`
 - Install Vim: `brew install vim && vim --version`
 - Install tmux: `brew install tmux && tmux --version`
 - Install Node: `brew install node && node --version && npm --version && npx --version`
@@ -32,52 +32,82 @@ Add `code` command to `PATH`: `Cmd+Shift+P`, `Shell Command: Install 'code' comm
 - Auto Close Tag
 - Babel Javascript
 - ESLint
-- file-icons
 - GraphQL for VSCode
-- Latest Typescript and Javascript Grammar
-- Subliminal
 - Terminal
 - TSLint
 - TypeScript Hero
 - Vim
+- npm Intellisense
 - vscode-icons
 
 ### Starter `settings.json`
 
 ```json
 {
-  "editor.fontFamily": "Dank Mono, Regular",
-  "editor.fontSize": 18,
-  "editor.renderWhitespace": "all",
-  "editor.fontLigatures": true,
-  "editor.folding": true,
-  "editor.hideCursorInOverviewRuler": true,
-  "editor.lineHeight": 26,
-  "editor.lineNumbers": "off",
-  "editor.matchBrackets": false,
-  "editor.minimap.enabled": false,
-  "editor.overviewRulerBorder": false,
-  "editor.tabSize": 2,
-  "explorer.openEditors.visible": 0,
-  "terminal.integrated.shell.osx": "/bin/zsh",
-  "vim.easymotion": true,
-  "vim.handleKeys": { "<C-a>": false, "<C-f>": false },
-  "vim.hlsearch": true,
-  "vim.incsearch": true,
-  "vim.insertModeKeyBindings": [{"before": ["j", "k"], "after": ["<Esc>"]}],
-  "vim.leader": "<space>",
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {"before": ["<leader>", "d"], "after": ["d", "d"]},
-    {"before": ["<C-n>"], "commands": [":nohl"]}
-  ],
-  "vim.sneak": true,
-  "vim.useCtrlKeys": true,
-  "vim.useSystemClipboard": true,
-  "window.zoomLevel": 0,
-  "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "Subliminal",
-  "workbench.editor.showIcons": false,
-  "workbench.iconTheme": "file-icons",
-  "workbench.startupEditor": "newUntitledFile",
+    "editor.fontSize": 16,
+    "editor.minimap.enabled": false,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Dank Mono",
+    "editor.fontWeight": "600",
+    "editor.overviewRulerBorder": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.occurrencesHighlight": false,
+    "editor.matchBrackets": "always",
+    "editor.glyphMargin": true,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.tslint": true,
+        "source.organizeImports": true
+    },
+    "editor.renderWhitespace": "none",
+    "explorer.openEditors.visible": 0,
+    "explorer.confirmDelete": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.colorCustomizations": {
+        "editor.selectionBackground": "#1355647a",
+        "editor.selectionHighlightBackground": "#1355647a"
+    },
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Monokai Pro",
+    "workbench.activityBar.visible": true,
+    "workbench.editor.showIcons": true,
+    "workbench.editor.tabCloseButton": "right",
+    "workbench.statusBar.visible": true,
+    "window.zoomLevel": 0,
+    "vim.easymotion": true,
+    "vim.sneak": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.leader": ",",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "explorer.confirmDragAndDrop": false,
+    "workbench.editor.showTabs": false,
+    "workbench.iconTheme": "Monokai Pro Icons",
+    "workbench.panel.defaultLocation": "right",
+    "typescriptHero.imports.insertSemicolons": false,
+    "typescriptHero.imports.insertSpaceBeforeAndAfterImportBraces": false,
+    "typescriptHero.imports.multiLineTrailingComma": false,
+    "typescriptHero.imports.stringQuoteStyle": "\"",
+    "typescriptHero.imports.removeTrailingIndex": false,
+    "typescript.format.insertSpaceAfterConstructor": true,
+    "prettier.tabWidth": 4,
 }
 ```
