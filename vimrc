@@ -5,7 +5,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim " ctrlp
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
-Plug 'elixir-editors/vim-elixir'
+Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
@@ -37,7 +37,7 @@ set noincsearch
 set ignorecase smartcase
 set laststatus=2
 set tabstop=2
-set shiftwidth=4
+set shiftwidth=2
 set autoindent
 set smartindent
 set mouse=a
@@ -53,17 +53,6 @@ set clipboard=unnamed
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-
-" --- Elm Vim Configuration
-let g:elm_jump_to_error = 0
-" let g:elm_make_output_file = "elm.js"
-let g:elm_make_show_warnings = 0
-" let g:elm_syntastic_show_warnings = 0
-" let g:elm_browser_command = ""
-let g:elm_detailed_complete = 0
-let g:elm_format_autosave = 1
-let g:elm_format_fail_silently = 0
-let g:elm_setup_keybindings = 1
 
 " --- COC Configuration
 set hidden
