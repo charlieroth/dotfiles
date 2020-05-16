@@ -1,8 +1,17 @@
 [user]
-	name = charlieroth
-	email = charlieroth4@icloud.com
+    name = Charles Roth
+    email = charlieroth4@icloud.com
+[alias]
+    co = checkout
+[push]
+    default = current
+[github]
+    user = charlieroth
+[apply]
+    whitespace = nowarn
+[help]
+    autocorrect = 1
 [core]
-  excludesfile = ~/.gitignore_global
-
+    excludesfile = ~/.gitignore_global
 [log]
-  date = relative
+    date = relative
