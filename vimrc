@@ -1,28 +1,23 @@
 set nocompatible 
 filetype plugin indent on
 
-" -- Plugins
 call plug#begin('~/.vim/plugged')
-"Vim
-Plug 'morhetz/gruvbox'
+" ===== Vim =====
 Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
-
-"Git
+" ===== Git =====
 Plug 'tpope/vim-fugitive'
-
-"Productivity
+" ===== Productivity =====
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
-"Language Support
+" ===== Elixir =====
+Plug 'elixir-editors/vim-elixir'
 call plug#end()
 
-" -- Leader
-let mapleader = ","
 
-" -- General Mappings
+" ===== Mappings =====
+let mapleader = ","
 imap jk <esc>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
@@ -30,11 +25,21 @@ map <C-x> <esc>:wq<CR>
 imap <C-x> <esc>:wq<CR>
 imap <C-t> <esc>:tabnew<CR>
 map <C-h> :nohl<cr>
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+nnoremap tn :tabnew<Space>
+nnoremap tm :tabmove<Space>
+nnoremap tk :tabnext<CR>
+nnoremap tj :tabprev<CR>
+nnoremap th :tabfirst<CR>
+nnoremap tl :tablast<CR>
 
-" -- General Vim
+
+" ===== Vim =====
 syntax on
-colorscheme gruvbox
-set background=dark
+set background=light
 set backspace=indent,eol,start
 set history=500
 set ruler
@@ -55,28 +60,30 @@ set wildmenu
 set path+=**
 set expandtab
 set number
+set relativenumber
 set clipboard=unnamed
 
-" -- FZF
+" ===== FZF =====
 nnoremap <silent> <Leader>og :Ag<CR>
 nnoremap <silent> <Leader>o :Files<CR>
 nnoremap <silent> <Leader>l :BLines<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 
-" -- Fugitive
-nmap <Leader>gs :G<CR>
+" ===== Fugitive ===== 
+nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gj :diffget //3<CR>
 nmap <Leader>gf :diffget //2<CR>
 
 
-" -- NERDTree
+" ===== NERDTree =====
 map <Leader>n :NERDTreeToggle<CR>
+map <Leader>nf :NERDTreeFind<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 
-" --- Coc
+" ===== COC =====
 set hidden
 set nobackup
 set nowritebackup
@@ -111,7 +118,7 @@ else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-"Use K to show documentation in preview window.
+" Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -121,7 +128,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-"Mappings:
+" ===== COC Mappings =====
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
@@ -139,24 +146,3 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-
-" -- Tabs
-nnoremap tn :tabnew<Space>
-nnoremap tm :tabmove<Space>
-nnoremap tk :tabnext<CR>
-nnoremap tj :tabprev<CR>
-nnoremap th :tabfirst<CR>
-nnoremap tl :tablast<CR>
-
-
-" -- CtrlP
-let g:ctrlp_map='<c-p>'
-let g:ctrlp_cmd='CtrlP'
-let g:ctrlp_working_path_mode='ra'
-let g:ctrlp_switch_buffer = 0
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git\|dist\|bin\|.elixir_ls\|elm-stuff\|_build\'
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("t")': ['<c-a>'],
-    \ }
