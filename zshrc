@@ -26,6 +26,10 @@ function git_current_branch() {
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git tmux)
 
+# General Aliases
+alias cl="clear"
+alias lp="lsof -Pi | grep LISTEN"
+
 # Version Control
 alias ga="git add ."
 alias gcm="git commit -m $1"
