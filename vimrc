@@ -1,10 +1,8 @@
-set nocompatible 
-filetype plugin indent on
-
 call plug#begin('~/.vim/plugged')
 " ===== Vim =====
 Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
+Plug 'morhetz/gruvbox'
 " ===== Git =====
 Plug 'tpope/vim-fugitive'
 " ===== Productivity =====
@@ -39,7 +37,8 @@ nnoremap tl :tablast<CR>
 
 " ===== Vim =====
 syntax on
-set background=light
+colorscheme gruvbox
+set background=dark
 set backspace=indent,eol,start
 set history=500
 set ruler
