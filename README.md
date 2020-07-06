@@ -1,5 +1,3 @@
-# Dotfiles
-
 ## Machine Setup
 
 - Install Alfred: `https://www.alfredapp.com`
