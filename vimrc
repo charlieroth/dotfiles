@@ -44,11 +44,15 @@ set noswapfile
 set noerrorbells
 set relativenumber
 
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
 nnoremap <silent> <Leader>og :Ag<CR>
 nnoremap <silent> <Leader>o :Files<CR>
 nnoremap <silent> <Leader>l :BLines<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
-
 nmap <Leader>gs :G<CR>
 nmap <Leader>gj :diffget //3<CR>
 nmap <Leader>gf :diffget //2<CR>
