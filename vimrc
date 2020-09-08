@@ -40,6 +40,7 @@ call plug#end()
 
 let loaded_matchparen = 1
 let mapleader = ","
+let g:airline_theme='minimalist'
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Movement
