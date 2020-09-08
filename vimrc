@@ -1,75 +1,74 @@
 syntax on
+set nonumber
+set guicursor=
+set backspace=indent,eol,start
+set nohlsearch
+set hidden
+set noerrorbells
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set nowrap
+set smartcase
+set noswapfile
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set termguicolors
+set scrolloff=8
+set noshowmode
+set cmdheight=2
+set laststatus=2
+set updatetime=50
+set shortmess+=c
+set colorcolumn=80
+colorscheme charlie
+
 
 call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'pangloss/vim-javascript'
 call plug#end()
 
+let loaded_matchparen = 1
 let mapleader = ","
-imap jk <esc>
-colorscheme gruvbox
-set background=dark
-set backspace=indent,eol,start
-set history=500
-set ruler
-set showcmd
-set showmatch
-set nowrap
-set backupdir=~/.tmp
-set directory=~/.tmp
-set autoread
-set smarttab
-set noincsearch
-set ignorecase smartcase
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
-set smartindent
-set laststatus=2
-set cmdheight=2
-set mouse=a
-set wildmenu
-set path+=**
-set noswapfile
-set noerrorbells
-set relativenumber
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+" Movement
+imap jk <esc>
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+nnoremap tn :tabnew<Space>
+nnoremap tm :tabmove<Space>
+nnoremap tk :tabnext<CR>
+nnoremap tj :tabprev<CR>
+nnoremap th :tabfirst<CR>
+nnoremap tl :tablast<CR>
 
+
+" FZF
+let $FZF_DEFAULT_OPTS='--reverse'
 nnoremap <silent> <Leader>og :Ag<CR>
 nnoremap <silent> <Leader>o :Files<CR>
 nnoremap <silent> <Leader>l :BLines<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
+
+" Fugitive
 nmap <Leader>gs :G<CR>
 nmap <Leader>gj :diffget //3<CR>
 nmap <Leader>gf :diffget //2<CR>
 
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=2
-set updatetime=300
-set shortmess+=c
-if has("patch-8.1.1564")
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
-
+" COC
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -107,18 +106,3 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-let g:session_directory = '~/vim-sessions'
-exec 'nnoremap <leader>ss :mks! ' . g:session_directory . '/*.vim<C-D><BS><BS><BS><BS><BS>'
-exec 'nnoremap <leader>sr :so ' . g:session_directory . '/*.vim<C-D><BS><BS><BS><BS><BS>'
-autocmd BufWinLeave "." mkview
-autocmd BufWinEnter "." silent loadview
-
-nnoremap tn :tabnew<Space>
-nnoremap tm :tabmove<Space>
-nnoremap tk :tabnext<CR>
-nnoremap tj :tabprev<CR>
-nnoremap th :tabfirst<CR>
-nnoremap tl :tablast<CR>
-
-map <silent> <Leader>n :NERDTreeToggle<CR>
