@@ -1,6 +1,6 @@
 # Dotfiles
 
-## Setting up a new machine
+## Install
 
 - Alfred: `https://www.alfredapp.com`
 - Homebrew: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && brew --version`
