@@ -1,5 +1,3 @@
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 ZSH_THEME="charlie"
 
@@ -57,4 +55,7 @@ export ZSH=$HOME/.oh-my-zsh
 export PATH=~/.npm-global/bin:$PATH
 export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
 export TERM=xterm-256color
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 source $ZSH/oh-my-zsh.sh
+
