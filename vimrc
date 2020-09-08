@@ -1,3 +1,4 @@
+" Vim
 syntax on
 set nonumber
 set guicursor=
@@ -22,10 +23,9 @@ set cmdheight=2
 set laststatus=2
 set updatetime=50
 set shortmess+=c
-set colorcolumn=80
 colorscheme charlie
 
-
+" Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
@@ -38,10 +38,10 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'pangloss/vim-javascript'
 call plug#end()
 
+" Other
 let loaded_matchparen = 1
 let mapleader = ","
 let g:airline_theme='minimalist'
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Movement
 imap jk <esc>
@@ -55,7 +55,6 @@ nnoremap tk :tabnext<CR>
 nnoremap tj :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
-
 
 " FZF
 let $FZF_DEFAULT_OPTS='--reverse'
