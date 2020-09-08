@@ -6,7 +6,7 @@
 # Variables
 DIR=~/dotfiles
 OLD_DIR=~/dotfiles_old
-FILES="gitconfig vimrc zshrc charlie"
+FILES="gitconfig vimrc zshrc"
 
 # Create dotfiles_old in home directory
 echo "Creating $OLD_DIR for backup of any existing dotfiles in ~"
@@ -26,10 +26,5 @@ for FILE in $FILES; do
   
   echo "Creating symlink to $FILE in home directory"
   
-  if [$FILE == "charlie"]
-  then
-      ln -s $DIR/$FILE ~/.vim/colors/charlie.vim
-  else
-      ln -s $DIR/$FILE ~/.$FILE
-  fi
+  ln -s $DIR/$FILE ~/.$FILE
 done
