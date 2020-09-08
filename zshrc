@@ -1,5 +1,4 @@
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="lambda"
+ZSH_THEME="charlie"
 
 # Outputs the name of the current branch
 # Usage example: git pull origin $(git_current_branch)
@@ -20,7 +19,7 @@ function git_current_branch() {
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git tmux)
+plugins=(git)
 
 # General Aliases
 alias cl="clear"
@@ -38,13 +37,10 @@ alias ggpush="git push origin $(git_current_branch)"
 alias ggpull="git pull origin $(git_current_branch)"
 
 # Projects
-alias iu-api="cd ~/appirio/iu-cc/api"
-alias iu-client="cd ~/appirio/iu-cc/client"
 
 # Frequently Used Files
 alias vrc="vim ~/.vimrc"
 alias vzrc="vim ~/.zshrc"
-alias vmux="vim ~/.tmux.conf"
 
 # Postgres
 alias postgres_start="pg_ctl -D /usr/local/var/postgres start"
