@@ -6,6 +6,7 @@ set backspace=indent,eol,start
 set nohlsearch
 set hidden
 set noerrorbells
+set showtabline=2
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -34,6 +35,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'fatih/vim-go'
 " Plug 'leafgarland/typescript-vim'
 " Plug 'pangloss/vim-javascript'
 call plug#end()
