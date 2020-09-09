@@ -12,6 +12,9 @@ set t_Co=256
 let g:colors_name = "charlie"
 
 hi Normal guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=224 cterm=NONE
+hi Cursor guifg=#000000 guibg=#f9f7f9 guisp=#f9f7f9 gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
+hi Visual guifg=#000000 guibg=#e6e6e6 guisp=#e6e6e6 gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
+hi VisualNOS guifg=#000000 guibg=#e6e6e6 guisp=#e6e6e6 gui=underline ctermfg=NONE ctermbg=15 cterm=underline
 "hi Union -- no settings --
 "hi Question -- no settings --
 "hi clear -- no settings --
@@ -21,16 +24,14 @@ hi Search guifg=#000000 guibg=#bdbdbb guisp=#bdbdbb gui=NONE ctermfg=NONE ctermb
 
 hi SignColumn guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 
-hi SpecialComment guifg=#000000 guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
-hi Typedef guifg=#000000 guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
 hi Title guifg=#000000 guibg=#1b1124 guisp=#1b1124 gui=bold ctermfg=NONE ctermbg=235 cterm=bold
 hi Folded guifg=#000000 guibg=#6effa8 guisp=#6effa8 gui=italic ctermfg=NONE ctermbg=85 cterm=NONE
 hi PreCondit guifg=#000000 guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi Include guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 
-hi TabLineSel guifg=#000000 guibg=#bdbdbb guisp=#bdbdbb gui=bold ctermfg=NONE ctermbg=250 cterm=bold
+hi TabLineSel guifg=#000000 guibg=#ffffff guisp=#bdbdbb gui=bold ctermfg=NONE ctermbg=250 cterm=bold
 hi TabLineFill guifg=#000000 guibg=#bdbdbb guisp=#696270 gui=bold ctermfg=NONE ctermbg=242 cterm=bold
-hi TabLine guifg=#000000 guibg=#ffffff guisp=#696270 gui=bold ctermfg=NONE ctermbg=242 cterm=bold
+hi TabLine guifg=#000000 guibg=#bdbdbd guisp=#696270 gui=bold ctermfg=NONE ctermbg=242 cterm=bold
 
 hi WildMenu guifg=#000000 guibg=#919191 guisp=#919191 gui=NONE ctermfg=NONE ctermbg=246 cterm=NONE
 hi PMenu guifg=#000000 guibg=#bdbdbd guisp=#bdbdbd gui=NONE ctermfg=NONE ctermbg=250 cterm=NONE
@@ -57,6 +58,7 @@ hi StatusLine guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ct
 hi CursorLine guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 hi CursorColumn guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 
+hi LocalVariable guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 hi Identifier guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 hi Conditional guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
 hi Delimiter guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
@@ -66,6 +68,7 @@ hi EnumerationValue guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=N
 hi Comment guifg=#000000 guibg=#e6e6e6 guisp=#e6e6e6 gui=NONE ctermfg=NONE ctermbg=254 cterm=NONE
 hi Character guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 hi Float guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
+hi String guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 hi Number guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 hi Boolean guifg=#000000 guibg=#fff7f7 guisp=#fff7f7 gui=NONE ctermfg=NONE ctermbg=224 cterm=NONE
 hi Operator guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
@@ -73,44 +76,44 @@ hi Function guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE cter
 hi Keyword guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
 hi Type guifg=#000000 guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
 hi Constant guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
-
-hi Visual guifg=#000000 guibg=#fff2fc guisp=#fff2fc gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
+hi MatchParen guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
+hi SpecialChar guifg=#000000 guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
+hi SpecialComment guifg=#000000 guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
+hi Typedef guifg=#000000 guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
 
 hi FoldColumn guifg=#000000 guibg=#ffffff guisp=#ffffff gui=italic ctermfg=NONE ctermbg=15 cterm=NONE
 
 hi LineNr guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 
-hi NonText guifg=#000000 guibg=#ffffff guisp=#ffffff gui=italic ctermfg=NONE ctermbg=15 cterm=NONE
+hi SpellBad guifg=#000000 guibg=#ff9a8c guisp=#1b1124 gui=underline ctermfg=NONE ctermbg=235 cterm=underline
+hi SpellRare guifg=#000000 guibg=#ff9a8c guisp=#1b1124 gui=underline ctermfg=NONE ctermbg=235 cterm=underline
+hi SpellCap guifg=#000000 guibg=#ff9a8c guisp=#1b1124 gui=underline ctermfg=NONE ctermbg=235 cterm=underline
+hi SpellLocal guifg=#000000 guibg=#ff9a8c guisp=#1b1124 gui=underline ctermfg=NONE ctermbg=235 cterm=underline
+
+hi Define guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
+hi DefinedName guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
+
+hi Exception guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
+hi Error guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 hi ErrorMsg guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
+hi WarningMsg guifg=#000000 guibg=#bdbdbb guisp=#bdbdbb gui=NONE ctermfg=NONE ctermbg=246 cterm=NONE
+hi ModeMsg guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
+hi MoreMsg guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
+
+hi Directory guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
+hi Structure guifg=#000000 guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
+
+hi NonText guifg=#000000 guibg=#ffffff guisp=#ffffff gui=italic ctermfg=NONE ctermbg=15 cterm=NONE
 hi Ignore guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 hi Debug guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
-hi SpecialChar guifg=#000000 guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi StorageClass guifg=#000000 guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
 hi Special guifg=#000000 guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi Label guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
-hi SpellRare guifg=#000000 guibg=#1b1124 guisp=#1b1124 gui=underline ctermfg=NONE ctermbg=235 cterm=underline
-hi WarningMsg guifg=#000000 guibg=#919190 guisp=#919190 gui=NONE ctermfg=NONE ctermbg=246 cterm=NONE
-hi VisualNOS guifg=#000000 guibg=#fff2fc guisp=#fff2fc gui=underline ctermfg=NONE ctermbg=15 cterm=underline
-hi ModeMsg guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
-hi Define guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 hi PreProc guifg=#000000 guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
-hi MoreMsg guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
-hi SpellCap guifg=#000000 guibg=#1b1124 guisp=#1b1124 gui=underline ctermfg=NONE ctermbg=235 cterm=underline
 hi VertSplit guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
-hi Exception guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
-hi Cursor guifg=#000000 guibg=#f9f7f9 guisp=#f9f7f9 gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
-hi SpellLocal guifg=#000000 guibg=#1b1124 guisp=#1b1124 gui=underline ctermfg=NONE ctermbg=235 cterm=underline
-hi Error guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 hi SpecialKey guifg=#000000 guibg=NONE guisp=NONE gui=italic ctermfg=NONE ctermbg=NONE cterm=NONE
-hi DefinedName guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 hi Tag guifg=#000000 guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
-hi String guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
-hi MatchParen guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
-hi LocalVariable guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 hi Repeat guifg=#000000 guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
-hi SpellBad guifg=#000000 guibg=#1b1124 guisp=#1b1124 gui=underline ctermfg=NONE ctermbg=235 cterm=underline
-hi Directory guifg=#000000 guibg=#ffffff guisp=#ffffff gui=bold ctermfg=NONE ctermbg=15 cterm=bold
-hi Structure guifg=#000000 guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
 hi Macro guifg=#000000 guibg=#ffffff guisp=#ffffff gui=NONE ctermfg=NONE ctermbg=15 cterm=NONE
 hi Underlined guifg=#000000 guibg=#1b1124 guisp=#1b1124 gui=underline ctermfg=NONE ctermbg=235 cterm=underline
 hi cursorim guifg=#000000 guibg=#8f5291 guisp=#8f5291 gui=NONE ctermfg=NONE ctermbg=96 cterm=NONE
