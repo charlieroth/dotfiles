@@ -15,3 +15,5 @@
     excludesfile = ~/.gitignore_global
 [log]
     date = relative
+[init]
+	defaultBranch = current

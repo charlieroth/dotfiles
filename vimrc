@@ -1,14 +1,14 @@
 " Vim
 syntax on
-set nonumber
+set number
 set guicursor=
 set backspace=indent,eol,start
 set nohlsearch
 set hidden
 set noerrorbells
 set showtabline=2
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
 set nowrap
@@ -24,7 +24,6 @@ set cmdheight=2
 set laststatus=2
 set updatetime=50
 set shortmess+=c
-colorscheme charlie
 
 " Plugins
 call plug#begin('~/.vim/plugged')
@@ -32,13 +31,22 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'fatih/vim-go'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'pangloss/vim-javascript'
+Plug 'urbit/hoon.vim'
 call plug#end()
+
+set background=dark
+color gruvbox
+
+let g:gruvbox_contrast_dark = 'hard'
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+let g:gruvbox_invert_selection='0'
 
 " Other
 let loaded_matchparen = 1
