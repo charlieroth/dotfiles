@@ -1,6 +1,8 @@
-" Vim
+""""""""""""""""""""""""""""""
+" GENERAL VIM
+""""""""""""""""""""""""""""""
 syntax on
-set number
+set relativenumber
 set guicursor=
 set backspace=indent,eol,start
 set nohlsearch
@@ -24,36 +26,29 @@ set cmdheight=2
 set laststatus=2
 set updatetime=50
 set shortmess+=c
-
-" Plugins
+let loaded_matchparen = 1
+let mapleader = ","
+""""""""""""""""""""""""""""""
+" PLUGINS
+""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'urbit/hoon.vim'
+" Plug 'urbit/hoon.vim'
+" Plug 'ziglang/zig.vim'
+" Plug 'elixir-editors/vim-elixir'
+" Plug 'JuliaEditorSupport/julia-vim'
+" Plug 'kdheepak/JuliaFormatter.vim'
 call plug#end()
-
-set background=dark
-color gruvbox
-
-let g:gruvbox_contrast_dark = 'hard'
-if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
-let g:gruvbox_invert_selection='0'
-
-" Other
-let loaded_matchparen = 1
-let mapleader = ","
-let g:airline_theme='minimalist'
-
-" Movement
+""""""""""""""""""""""""""""""
+" MORE GENERAL VIM
+""""""""""""""""""""""""""""""
 imap jk <esc>
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -65,20 +60,49 @@ nnoremap tk :tabnext<CR>
 nnoremap tj :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
+""""""""""""""""""""""""""""""
+" GRUVBOX
+""""""""""""""""""""""""""""""
+set background=dark
+color gruvbox
 
-" FZF
+let g:gruvbox_contrast_dark = 'hard'
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+let g:gruvbox_invert_selection='0'
+""""""""""""""""""""""""""""""
+" JULIA FORMATTER
+""""""""""""""""""""""""""""""
+let g:JuliaFormatter_options = {
+        \ 'indent'                    : 4,
+        \ 'margin'                    : 92,
+        \ 'always_for_in'             : v:false,
+        \ 'whitespace_typedefs'       : v:false,
+        \ 'whitespace_ops_in_indices' : v:true,
+        \ }
+""""""""""""""""""""""""""""""
+" VIM AIRLINE 
+""""""""""""""""""""""""""""""
+let g:airline_theme='minimalist'
+""""""""""""""""""""""""""""""
+" FZF 
+""""""""""""""""""""""""""""""
 let $FZF_DEFAULT_OPTS='--reverse'
 nnoremap <silent> <Leader>og :Ag<CR>
 nnoremap <silent> <Leader>o :Files<CR>
 nnoremap <silent> <Leader>l :BLines<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
-
-" Fugitive
+""""""""""""""""""""""""""""""
+" FUGITIVE 
+""""""""""""""""""""""""""""""
 nmap <Leader>gs :G<CR>
 nmap <Leader>gj :diffget //3<CR>
 nmap <Leader>gf :diffget //2<CR>
-
-" COC
+""""""""""""""""""""""""""""""
+" COC 
+""""""""""""""""""""""""""""""
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
