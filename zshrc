@@ -1,4 +1,4 @@
-ZSH_THEME="lambda"
+ZSH_THEME="eastwood"
 
 # Outputs the name of the current branch
 # Usage example: git pull origin $(git_current_branch)
@@ -21,26 +21,32 @@ function git_current_branch() {
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
+alias vim="nvim"
+
 # General Aliases
 alias cl="clear"
 alias lp="lsof -Pi | grep LISTEN"
 alias lsn="ps -ef | grep node"
+alias vimf="vim (ls | fzf)"
+
+# Node/NPM
+alias cpj="cat package.json | fzf"
+alias nrx="npm run xcode"
 
 # Version Control
 alias ga="git add"
 alias gcm="git commit -m"
 alias gct="git checkout"
-alias gctb="git checkout -b"
+alias gcb="git checkout -b"
 alias gd="git diff"
 alias gs="git status"
 alias ggpush="git push origin $(git_current_branch)"
 alias ggpull="git pull origin $(git_current_branch)"
+alias gfp="git fetch && git pull"
 
-# Projects
-
-# Frequently Used Files
-alias vrc="vim ~/.vimrc"
-alias vzrc="vim ~/.zshrc"
+# Tmux Environments
+alias albert="sh ~/bin/dev-albert"
+alias elixirlab="sh ~/bin/elixir-lab"
 
 # Postgres
 alias postgres_start="pg_ctl -D /usr/local/var/postgres start"
@@ -54,6 +60,11 @@ export ZSH=$HOME/.oh-my-zsh
 export PATH=~/.npm-global/bin:$PATH
 export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
 export TERM=xterm-256color
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 source $ZSH/oh-my-zsh.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+

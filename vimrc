@@ -2,6 +2,7 @@
 " GENERAL VIM
 """"""""""""""""""""""""""""""
 syntax on
+set number
 set relativenumber
 set guicursor=
 set backspace=indent,eol,start
@@ -22,8 +23,6 @@ set incsearch
 set termguicolors
 set scrolloff=8
 set noshowmode
-set cmdheight=2
-set laststatus=2
 set updatetime=50
 set shortmess+=c
 let loaded_matchparen = 1
@@ -37,14 +36,19 @@ Plug 'tpope/vim-commentary'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'urbit/hoon.vim'
-" Plug 'ziglang/zig.vim'
-" Plug 'elixir-editors/vim-elixir'
+Plug 'morhetz/gruvbox'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'peitalin/vim-jsx-typescript'
+" Plug 'robertmeta/nofrils'
+" Plug 'arzg/vim-plan9'
+" Plug 'pangloss/vim-javascript'
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'elixir-editors/vim-elixir'
+" Plug 'elmcast/elm-vim'
 " Plug 'JuliaEditorSupport/julia-vim'
-" Plug 'kdheepak/JuliaFormatter.vim'
+" Plug 'ziglang/zig.vim'
 call plug#end()
 """"""""""""""""""""""""""""""
 " MORE GENERAL VIM
@@ -60,40 +64,37 @@ nnoremap tk :tabnext<CR>
 nnoremap tj :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
-""""""""""""""""""""""""""""""
-" GRUVBOX
-""""""""""""""""""""""""""""""
-set background=dark
-color gruvbox
-
-let g:gruvbox_contrast_dark = 'hard'
-if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
-let g:gruvbox_invert_selection='0'
+let g:latex_to_unicode_tab = 0
+let g:latex_to_unicode_suggestions = 0
+let g:latex_to_unicode_eager = 0
+let g:latex_to_unicode_auto = 0
+let g:latex_to_unicode_keymap = 0
+colorscheme gruvbox
+set bg=dark
 """"""""""""""""""""""""""""""
 " JULIA FORMATTER
 """"""""""""""""""""""""""""""
-let g:JuliaFormatter_options = {
-        \ 'indent'                    : 4,
-        \ 'margin'                    : 92,
-        \ 'always_for_in'             : v:false,
-        \ 'whitespace_typedefs'       : v:false,
-        \ 'whitespace_ops_in_indices' : v:true,
-        \ }
+" let g:JuliaFormatter_options = {
+"         \ 'indent'                    : 4,
+"         \ 'margin'                    : 92,
+"         \ 'always_for_in'             : v:false,
+"         \ 'whitespace_typedefs'       : v:false,
+"         \ 'whitespace_ops_in_indices' : v:true,
+"         \ }
 """"""""""""""""""""""""""""""
 " VIM AIRLINE 
 """"""""""""""""""""""""""""""
-let g:airline_theme='minimalist'
+let g:airline_theme='bubblegum'
 """"""""""""""""""""""""""""""
 " FZF 
 """"""""""""""""""""""""""""""
 let $FZF_DEFAULT_OPTS='--reverse'
-nnoremap <silent> <Leader>og :Ag<CR>
-nnoremap <silent> <Leader>o :Files<CR>
-nnoremap <silent> <Leader>l :BLines<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>ff :Files<CR>
+nnoremap <silent> <Leader>fa :Ag<CR>
+nnoremap <silent> <Leader>fg :GFiles<CR>
+nnoremap <silent> <Leader>bb :Buffers<CR>
+nnoremap <silent> <Leader>bl :BLines<CR>
+let g:fzf_preview_window = ['down:40%', 'ctrl-/']
 """"""""""""""""""""""""""""""
 " FUGITIVE 
 """"""""""""""""""""""""""""""
@@ -103,6 +104,8 @@ nmap <Leader>gf :diffget //2<CR>
 """"""""""""""""""""""""""""""
 " COC 
 """"""""""""""""""""""""""""""
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -129,6 +132,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> <Leader>cr :CocRestart<CR>
+nnoremap <silent> <Leader>ce :CocList extensions<CR>
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
