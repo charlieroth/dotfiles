@@ -1,4 +1,5 @@
 ZSH_THEME="eastwood"
+MYVIMRC=~/.config/nvim/init.vim
 
 # Outputs the name of the current branch
 # Usage example: git pull origin $(git_current_branch)
@@ -22,6 +23,7 @@ function git_current_branch() {
 plugins=(git)
 
 alias vim="nvim"
+alias vrc="nvim $MYVIMRC"
 
 # General Aliases
 alias cl="clear"

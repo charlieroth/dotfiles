@@ -1,12 +1,35 @@
 """"""""""""""""""""""""""""""
+" PLUGINS
+""""""""""""""""""""""""""""""
+call plug#begin()
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'morhetz/gruvbox'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'peitalin/vim-jsx-typescript'
+" Plug 'robertmeta/nofrils'
+" Plug 'arzg/vim-plan9'
+" Plug 'pangloss/vim-javascript'
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'elixir-editors/vim-elixir'
+" Plug 'elmcast/elm-vim'
+" Plug 'JuliaEditorSupport/julia-vim'
+" Plug 'ziglang/zig.vim'
+call plug#end()
+""""""""""""""""""""""""""""""
 " GENERAL VIM
 """"""""""""""""""""""""""""""
+set guicursor=
+set nohlsearch
 syntax on
 set number
 set relativenumber
-set guicursor=
 set backspace=indent,eol,start
-set nohlsearch
 set hidden
 set noerrorbells
 set showtabline=2
@@ -28,29 +51,6 @@ set shortmess+=c
 let loaded_matchparen = 1
 let mapleader = ","
 """"""""""""""""""""""""""""""
-" PLUGINS
-""""""""""""""""""""""""""""""
-" call plug#begin('~/.vim/plugged')
-" Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-commentary'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-" Plug 'morhetz/gruvbox'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'peitalin/vim-jsx-typescript'
-" Plug 'robertmeta/nofrils'
-" Plug 'arzg/vim-plan9'
-" Plug 'pangloss/vim-javascript'
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Plug 'elixir-editors/vim-elixir'
-" Plug 'elmcast/elm-vim'
-" Plug 'JuliaEditorSupport/julia-vim'
-" Plug 'ziglang/zig.vim'
-" call plug#end()
-""""""""""""""""""""""""""""""
 " MORE GENERAL VIM
 """"""""""""""""""""""""""""""
 imap jk <esc>
@@ -64,13 +64,13 @@ nnoremap tk :tabnext<CR>
 nnoremap tj :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
 " let g:latex_to_unicode_tab = 0
 " let g:latex_to_unicode_suggestions = 0
 " let g:latex_to_unicode_eager = 0
 " let g:latex_to_unicode_auto = 0
 " let g:latex_to_unicode_keymap = 0
-" colorscheme gruvbox
-" set bg=dark
+colorscheme gruvbox
 """"""""""""""""""""""""""""""
 " JULIA FORMATTER
 """"""""""""""""""""""""""""""
@@ -88,60 +88,59 @@ nnoremap tl :tablast<CR>
 """"""""""""""""""""""""""""""
 " FZF 
 """"""""""""""""""""""""""""""
-" let $FZF_DEFAULT_OPTS='--reverse'
-" nnoremap <silent> <Leader>ff :Files<CR>
-" nnoremap <silent> <Leader>fa :Ag<CR>
-" nnoremap <silent> <Leader>fg :GFiles<CR>
-" nnoremap <silent> <Leader>bb :Buffers<CR>
-" nnoremap <silent> <Leader>bl :BLines<CR>
-" let g:fzf_preview_window = ['down:40%', 'ctrl-/']
+let $FZF_DEFAULT_OPTS='--reverse'
+nnoremap <silent> <Leader>ff :Files<CR>
+nnoremap <silent> <Leader>fa :Ag<CR>
+nnoremap <silent> <Leader>fg :GFiles<CR>
+nnoremap <silent> <Leader>bb :Buffers<CR>
+nnoremap <silent> <Leader>bl :BLines<CR>
+let g:fzf_preview_window = ['down:40%', 'ctrl-/']
 """"""""""""""""""""""""""""""
 " FUGITIVE 
 """"""""""""""""""""""""""""""
-" nmap <Leader>gs :G<CR>
-" nmap <Leader>gj :diffget //3<CR>
-" nmap <Leader>gf :diffget //2<CR>
+nmap <Leader>gs :G<CR>
+nmap <Leader>gj :diffget //3<CR>
+nmap <Leader>gf :diffget //2<CR>
 """"""""""""""""""""""""""""""
 " COC 
 """"""""""""""""""""""""""""""
-" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" inoremap <silent><expr> <TAB>
-	" \ pumvisible() ? "\<C-n>" :
-	" \ <SID>check_back_space() ? "\<TAB>" :
-	" \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-space> coc#refresh()
 
-" if exists('*complete_info')
-"   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-" else
-"   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" endif
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
-" nnoremap <silent> <Leader>cr :CocRestart<CR>
-" nnoremap <silent> <Leader>ce :CocList extensions<CR>
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> <Leader>cr :CocRestart<CR>
+nnoremap <silent> <Leader>ce :CocList extensions<CR>
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" function! s:show_documentation()
-"   if (index(['vim','help'], &filetype) >= 0)
-"     execute 'h '.expand('<cword>')
-"   else
-"     call CocAction('doHover')
-"   endif
-" endfunction
-
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
