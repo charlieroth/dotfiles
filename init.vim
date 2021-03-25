@@ -2,23 +2,18 @@
 " PLUGINS
 """"""""""""""""""""""""""""""
 call plug#begin()
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neovim/nvim-lspconfig'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
+Plug 'ziglang/zig.vim'
 " Plug 'leafgarland/typescript-vim'
 " Plug 'peitalin/vim-jsx-typescript'
-" Plug 'robertmeta/nofrils'
-" Plug 'arzg/vim-plan9'
 " Plug 'pangloss/vim-javascript'
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'elixir-editors/vim-elixir'
-" Plug 'elmcast/elm-vim'
-" Plug 'JuliaEditorSupport/julia-vim'
-Plug 'ziglang/zig.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -68,22 +63,7 @@ nnoremap tj :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
-" let g:latex_to_unicode_tab = 0
-" let g:latex_to_unicode_suggestions = 0
-" let g:latex_to_unicode_eager = 0
-" let g:latex_to_unicode_auto = 0
-" let g:latex_to_unicode_keymap = 0
 colorscheme gruvbox
-""""""""""""""""""""""""""""""
-" JULIA FORMATTER
-""""""""""""""""""""""""""""""
-" let g:JuliaFormatter_options = {
-"         \ 'indent'                    : 4,
-"         \ 'margin'                    : 92,
-"         \ 'always_for_in'             : v:false,
-"         \ 'whitespace_typedefs'       : v:false,
-"         \ 'whitespace_ops_in_indices' : v:true,
-"         \ }
 """"""""""""""""""""""""""""""
 " VIM AIRLINE 
 """"""""""""""""""""""""""""""
