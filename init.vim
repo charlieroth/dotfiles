@@ -4,9 +4,8 @@
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neovim/nvim-lspconfig'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
@@ -19,7 +18,7 @@ Plug 'morhetz/gruvbox'
 " Plug 'elixir-editors/vim-elixir'
 " Plug 'elmcast/elm-vim'
 " Plug 'JuliaEditorSupport/julia-vim'
-" Plug 'ziglang/zig.vim'
+Plug 'ziglang/zig.vim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -27,9 +26,9 @@ call plug#end()
 """"""""""""""""""""""""""""""
 " GENERAL VIM
 """"""""""""""""""""""""""""""
+syntax on
 set guicursor=
 set nohlsearch
-syntax on
 set number
 set relativenumber
 set backspace=indent,eol,start
@@ -40,9 +39,10 @@ set tabstop=2 softtabstop=2
 set shiftwidth=2
 set expandtab
 set smartindent
-set nowrap
 set smartcase
+set nowrap
 set noswapfile
+set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
@@ -87,7 +87,7 @@ colorscheme gruvbox
 """"""""""""""""""""""""""""""
 " VIM AIRLINE 
 """"""""""""""""""""""""""""""
-" let g:airline_theme='bubblegum'
+let g:airline_theme='bubblegum'
 """"""""""""""""""""""""""""""
 " TELESCOPE 
 """"""""""""""""""""""""""""""
@@ -95,16 +95,6 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 " nnoremap <leader>fb <cmd>Telescope buffers<cr>
 " nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-""""""""""""""""""""""""""""""
-" FZF 
-""""""""""""""""""""""""""""""
-" let $FZF_DEFAULT_OPTS='--reverse'
-" nnoremap <silent> <Leader>ff :Files<CR>
-" nnoremap <silent> <Leader>fa :Ag<CR>
-" nnoremap <silent> <Leader>fg :GFiles<CR>
-" nnoremap <silent> <Leader>bb :Buffers<CR>
-" nnoremap <silent> <Leader>bl :BLines<CR>
-" let g:fzf_preview_window = ['down:40%', 'ctrl-/']
 """"""""""""""""""""""""""""""
 " FUGITIVE 
 """"""""""""""""""""""""""""""
@@ -114,43 +104,43 @@ nmap <Leader>gf :diffget //2<CR>
 """"""""""""""""""""""""""""""
 " COC 
 """"""""""""""""""""""""""""""
-" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" inoremap <silent><expr> <TAB>
-	" \ pumvisible() ? "\<C-n>" :
-	" \ <SID>check_back_space() ? "\<TAB>" :
-	" \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-space> coc#refresh()
 
-" if exists('*complete_info')
-"   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-" else
-"   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" endif
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
-" nnoremap <silent> <Leader>cr :CocRestart<CR>
-" nnoremap <silent> <Leader>ce :CocList extensions<CR>
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> <Leader>cr :CocRestart<CR>
+nnoremap <silent> <Leader>ce :CocList extensions<CR>
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" function! s:show_documentation()
-"   if (index(['vim','help'], &filetype) >= 0)
-"     execute 'h '.expand('<cword>')
-"   else
-"     call CocAction('doHover')
-"   endif
-" endfunction
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction

@@ -47,8 +47,8 @@ alias ggpull="git pull origin $(git_current_branch)"
 alias gfp="git fetch && git pull"
 
 # Tmux Environments
-alias albert="sh ~/bin/dev-albert"
-alias elixirlab="sh ~/bin/elixir-lab"
+alias albert="sh ~/bin/albert"
+alias elixir="sh ~/bin/elixir"
 
 # Postgres
 alias postgres_start="pg_ctl -D /usr/local/var/postgres start"
@@ -57,15 +57,16 @@ alias postgres_stop="pg_ctl -D /usr/local/var/postgres stop"
 # RabbitMQ
 alias rabbitmq-stop="rabbitmqctl stop"
 
-# PATH exports 
 export ZSH=$HOME/.oh-my-zsh
-export PATH=~/.npm-global/bin:$PATH
-export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
 export TERM=xterm-256color
-source $ZSH/oh-my-zsh.sh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# PATH
+export PATH=$PATH:~/.npm-global/bin
+export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
+export PATH=$PATH:"${HOME}"/repos/zig-master/zig
+
+source $ZSH/oh-my-zsh.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
