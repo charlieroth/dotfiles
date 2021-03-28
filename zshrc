@@ -1,5 +1,5 @@
 ZSH_THEME="eastwood"
-MYVIMRC=~/.config/nvim/init.vim
+VIMRUNTIME=/usr/local/Cellar/neovim/HEAD-f0ace6d_2/share/nvim/runtime
 
 # Outputs the name of the current branch
 # Usage example: git pull origin $(git_current_branch)
@@ -43,8 +43,6 @@ alias gs="git status"
 alias ggpush="git push origin $(git_current_branch)"
 alias ggpull="git pull origin $(git_current_branch)"
 alias gfp="git fetch && git pull"
-# ziglang#master
-alias zig="~/zig-binary/zig"
 # Postgres
 alias postgres_start="pg_ctl -D /usr/local/var/postgres start"
 alias postgres_stop="pg_ctl -D /usr/local/var/postgres stop"
@@ -59,6 +57,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # PATH
 export PATH=$PATH:/Users/char/bin
+export PATH=$PATH:/Users/char/zig-binary
 export PATH=$PATH:/Users/char/repos/zls/zig-cache/bin
 export PATH=$PATH:~/.npm-global/bin
 export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
