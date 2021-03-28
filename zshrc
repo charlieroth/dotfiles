@@ -22,20 +22,18 @@ function git_current_branch() {
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
-alias vim="~/nvim-osx64/bin/nvim"
-alias vrc="nvim $MYVIMRC"
-
 # General Aliases
 alias cl="clear"
 alias lp="lsof -Pi | grep LISTEN"
 alias lsn="ps -ef | grep node"
-alias vimf="vim (ls | fzf)"
-
+# Vim
+alias vim="nvim"
+alias vrc="vim ~/.config/nvim"
 # Node/NPM
 alias cpj="cat package.json | fzf"
 alias nrx="npm run xcode"
-
 # Version Control
+alias lg="lazygit"
 alias ga="git add"
 alias gcm="git commit -m"
 alias gct="git checkout"
@@ -45,15 +43,11 @@ alias gs="git status"
 alias ggpush="git push origin $(git_current_branch)"
 alias ggpull="git pull origin $(git_current_branch)"
 alias gfp="git fetch && git pull"
-
-# Tmux Environments
-alias albert="sh ~/bin/albert"
-alias elixir="sh ~/bin/elixir"
-
+# ziglang#master
+alias zig="~/zig-binary/zig"
 # Postgres
 alias postgres_start="pg_ctl -D /usr/local/var/postgres start"
 alias postgres_stop="pg_ctl -D /usr/local/var/postgres stop"
-
 # RabbitMQ
 alias rabbitmq-stop="rabbitmqctl stop"
 
@@ -64,9 +58,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # PATH
+export PATH=$PATH:/Users/char/bin
+export PATH=$PATH:/Users/char/repos/zls/zig-cache/bin
 export PATH=$PATH:~/.npm-global/bin
 export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
-export PATH=$PATH:"${HOME}"/repos/zig-master/zig
 
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
