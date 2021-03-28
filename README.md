@@ -8,9 +8,9 @@ $ git clone https://github.com/charlieroth/dotfiles.git ~/char/dotfiles
 
 $ cd ~/char/dotfiles
 
-$ chmod +x link.sh
+$ chmod +x install.sh
 
-$ ./link.sh
+$ sh install.sh
 ```
 
 
@@ -27,6 +27,13 @@ MacOS package manager
 
 Install: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && brew --version`
 
+```bash
+$ brew install elixir
+
+$ brew install --HEAD luajit
+
+$ brew install --HEAD neovim
+```
 
 ## Oh My Zsh
 
@@ -35,7 +42,7 @@ Framework for managing Zsh configuration
 Install: `sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
 
-## Neovim
+## Neovim, Lua
 
 Vim-fork focused on extensibility and usability
 
