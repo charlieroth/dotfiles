@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 ln -s ~/.config/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/.config/dotfiles/tmux.conf ~/.tmux.conf
