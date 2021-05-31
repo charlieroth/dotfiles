@@ -1,5 +1,4 @@
-ZSH_THEME="eastwood"
-VIMRUNTIME=/usr/local/Cellar/neovim/HEAD-f0ace6d_2/share/nvim/runtime
+ZSH_THEME="minimal"
 
 # Outputs the name of the current branch
 # Usage example: git pull origin $(git_current_branch)
@@ -20,18 +19,24 @@ function git_current_branch() {
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git asdf)
 
 # General Aliases
 alias cl="clear"
 alias lp="lsof -Pi | grep LISTEN"
 alias lsn="ps -ef | grep node"
+
 # Vim
 alias vim="nvim"
 alias vrc="vim ~/.config/nvim"
+
 # Node/NPM
 alias cpj="cat package.json | fzf"
-alias nrx="npm run xcode"
+alias yrx="yarn run xcode"
+
+# tmux
+alias tks="tmux kill-server"
+
 # Version Control
 alias lg="lazygit"
 alias ga="git add"
@@ -43,9 +48,11 @@ alias gs="git status"
 alias ggpush="git push origin $(git_current_branch)"
 alias ggpull="git pull origin $(git_current_branch)"
 alias gfp="git fetch && git pull"
+
 # Postgres
 alias postgres_start="pg_ctl -D /usr/local/var/postgres start"
 alias postgres_stop="pg_ctl -D /usr/local/var/postgres stop"
+
 # RabbitMQ
 alias rabbitmq-stop="rabbitmqctl stop"
 
@@ -56,11 +63,20 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # PATH
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:/Users/char/bin
-export PATH=$PATH:/Users/char/zig-binary
-export PATH=$PATH:/Users/char/repos/zls/zig-cache/bin
 export PATH=$PATH:~/.npm-global/bin
 export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
 
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+. /opt/homebrew/opt/asdf/asdf.sh
