@@ -56,6 +56,9 @@ alias postgres_stop="pg_ctl -D /usr/local/var/postgres stop"
 # RabbitMQ
 alias rabbitmq-stop="rabbitmqctl stop"
 
+# Zig
+alias zig="/Users/charlie/fun/zig/zig"
+
 export ZSH=$HOME/.oh-my-zsh
 export TERM=xterm-256color
 export NVM_DIR="$HOME/.nvm"
@@ -78,5 +81,3 @@ source $ZSH/oh-my-zsh.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-
-. /opt/homebrew/opt/asdf/asdf.sh
