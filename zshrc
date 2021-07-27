@@ -19,7 +19,7 @@ function git_current_branch() {
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git asdf)
+plugins=(git)
 
 # General Aliases
 alias cl="clear"
@@ -48,18 +48,13 @@ alias gs="git status"
 alias ggpush="git push origin $(git_current_branch)"
 alias ggpull="git pull origin $(git_current_branch)"
 alias gfp="git fetch && git pull"
-
-# Postgres
-alias postgres_start="pg_ctl -D /usr/local/var/postgres start"
-alias postgres_stop="pg_ctl -D /usr/local/var/postgres stop"
-
-# RabbitMQ
-alias rabbitmq-stop="rabbitmqctl stop"
+alias urb="ssh -i ~/.ssh/urbit_rsa root@164.90.142.110"
 
 # Zig
-alias zig="/Users/charlie/fun/zig/zig"
+alias zig="/Users/charlie/tools/zig/zig"
 
 export ZSH=$HOME/.oh-my-zsh
+export VIMRUNTIME="/opt/homebrew/Cellar/neovim/HEAD-9c7e04e/share/nvim/runtime"
 export TERM=xterm-256color
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -67,17 +62,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # PATH
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:/Users/char/bin
 export PATH=$PATH:~/.npm-global/bin
-export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
+# export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
 
 source $ZSH/oh-my-zsh.sh
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
