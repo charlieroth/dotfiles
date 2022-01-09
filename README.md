@@ -41,18 +41,16 @@ Installation:
 ```
 
 
-## Neovim, Lua
+## Neovim
 
 Vim-fork focused on extensibility and usability
 
 Install: `https://github.com/neovim/neovim/wiki/Installing-Neovim`
 
 
-## Node
+## NVM (Node Version Manager)
 
-JavaScript runtime built on Chrome's V8 JavaScript Engine
-
-[Install & Update NVM](https://github.com/nvm-sh/nvm#installing-and-updating)
+[Install & Update](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 Installation:
 ```bash
