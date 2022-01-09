@@ -19,7 +19,7 @@ function git_current_branch() {
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git asdf)
 
 # General Aliases
 alias cl="clear"
@@ -32,7 +32,6 @@ alias vrc="vim ~/.config/nvim"
 
 # Node/NPM
 alias cpj="cat package.json | fzf"
-alias yrx="yarn run xcode"
 
 # tmux
 alias tks="tmux kill-server"
@@ -48,23 +47,31 @@ alias gs="git status"
 alias ggpush="git push origin $(git_current_branch)"
 alias ggpull="git pull origin $(git_current_branch)"
 alias gfp="git fetch && git pull"
-alias urb="ssh -i ~/.ssh/urbit_rsa root@164.90.142.110"
 
-# Zig
-alias zig="/Users/charlie/tools/zig/zig"
+
+# Tools
+alias zig="/Users/charlie/Tools/zig/zig"
+alias urb="ssh -i ~/.ssh/urbit_rsa root@159.223.12.37"
+alias livebook="cd ~/Tools/livebook && MIX_ENV=prod mix phx.server"
+# alias janet="/Users/charlie/Tools/janet-v1.18.1/bin/janet"
+# alias rebar3="/Users/charlie/Tools/rebar3"
+# alias lfe="/Users/charlie/Tools/lfe-1.2.1/bin/lfe"
 
 export ZSH=$HOME/.oh-my-zsh
-export VIMRUNTIME="/opt/homebrew/Cellar/neovim/HEAD-9c7e04e/share/nvim/runtime"
+export VIMRUNTIME="/opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/"
 export TERM=xterm-256color
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # PATH
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH=$PATH:/Users/char/bin
+export PATH=/Users/charlie/.cache/rebar3/bin:$PATH
+export PATH="/Users/charlie/.deno/bin:$PATH"
 export PATH=$PATH:~/.npm-global/bin
 # export PATH=$PATH:/usr/local/opt/rabbitmq/sbin
 
 source $ZSH/oh-my-zsh.sh
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -14,30 +14,28 @@ $ sh install.sh
 ```
 
 
-## Alfred
+# Software To Install (MacOS)
 
-Producitivity App for macOS
+## Raycast
 
-Download: `https://www.alfredapp.com`
+A blazingly fast, totally extendable launcher. It lets you complete tasks, calculate, share common links, and much more
+
+Download: `https://www.raycast.com/`
 
 
 ## Homebrew
 
 MacOS package manager
 
-Install: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && brew --version`
+Installation: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && brew --version`
 
 ```bash
-$ brew install elixir
-
-$ brew install --HEAD luajit
-
-$ brew install --HEAD neovim
+> brew install python@3.9 tmux tmuxinator go gopls lazygit rust-analyzer sqlite deno neovim lua-language-server tree tree-sitter
 ```
 
 ## Oh My Zsh
 
-Framework for managing Zsh configuration
+Framework for managing `zsh` configuration
 
 Install: `sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
