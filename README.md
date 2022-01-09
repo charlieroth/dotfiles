@@ -11,7 +11,7 @@ Dotfiles and tools I usually install when setting up a new machine
 ```
 
 
-# Software To Install (MacOS)
+# MacOS
 
 ## Raycast
 
