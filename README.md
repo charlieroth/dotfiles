@@ -27,8 +27,10 @@ MacOS package manager
 Installation:
 ```bash
 > /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+
 > brew --version
-> brew install python@3.9 go gopls lazygit gh rust-analyzer sqlite deno neovim lua-language-server tree tree-sitter ripgrep
+
+> brew install python@3.9 go gopls lazygit gh rust-analyzer sqlite deno neovim lua-language-server tree tree-sitter ripgrep netlify-cli
 ```
 
 ## Oh My Zsh
