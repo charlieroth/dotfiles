@@ -19,7 +19,7 @@ function git_current_branch() {
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git asdf)
+plugins=(git)
 
 # General Aliases
 alias cl="clear"
@@ -29,6 +29,7 @@ alias lsn="ps -ef | grep node"
 # Vim
 alias vim="nvim"
 alias vrc="vim ~/.config/nvim"
+alias batcave="cd ~/.config/nvim && nvim"
 
 # Node/NPM
 alias cpj="cat package.json | fzf"
@@ -51,16 +52,17 @@ alias gfp="git fetch && git pull"
 
 # Tools
 alias zig="/Users/charlie/Tools/zig/zig"
-# alias urb="ssh -i ~/.ssh/urbit_rsa root@159.223.12.37"
+alias urb="cd ~/Urbit && ./urbit waltyr-dacmus"
 alias livebook="cd ~/Tools/livebook && MIX_ENV=prod mix phx.server"
 
 export ZSH=$HOME/.oh-my-zsh
 export VIMRUNTIME="/opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/"
 export TERM=xterm-256color
+export EDITOR=nvim
 
 # PATH
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export PATH=$PATH:/Users/char/bin
+export PATH=$PATH:/Users/charlie/bin
 export PATH=/Users/charlie/.cache/rebar3/bin:$PATH
 export PATH="/Users/charlie/.deno/bin:$PATH"
 export PATH=$PATH:~/.npm-global/bin
@@ -71,7 +73,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# . /opt/homebrew/opt/asdf/libexec/asdf.sh
+export NETLIFY_AUTH_TOKEN="ttiFHOwvrqY1ahMMWZuPP5FSjeih4UcZdXAzQQi4foI"
 
 # place this after nvm initialization!
 autoload -U add-zsh-hook
@@ -94,3 +96,9 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/charlie/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/charlie/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/charlie/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/charlie/google-cloud-sdk/completion.zsh.inc'; fi
