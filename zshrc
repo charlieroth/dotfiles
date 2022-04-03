@@ -1,4 +1,4 @@
-ZSH_THEME="minimal"
+ZSH_THEME="charlie"
 
 # Outputs the name of the current branch
 # Usage example: git pull origin $(git_current_branch)
@@ -52,6 +52,7 @@ alias gfp="git fetch && git pull"
 
 # Tools
 alias zig="/Users/charlie/Tools/zig/zig"
+alias elixirls="/Users/charlie/Tools/elixirls/language_server.sh"
 alias urb="cd ~/Urbit && ./urbit waltyr-dacmus"
 alias livebook="cd ~/Tools/livebook && MIX_ENV=prod mix phx.server"
 
@@ -65,6 +66,7 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH=$PATH:/Users/charlie/bin
 export PATH=/Users/charlie/.cache/rebar3/bin:$PATH
 export PATH="/Users/charlie/.deno/bin:$PATH"
+export PATH="/Users/charlie/zls:$PATH"
 export PATH=$PATH:~/.npm-global/bin
 
 source $ZSH/oh-my-zsh.sh
