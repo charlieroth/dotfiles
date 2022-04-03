@@ -3,7 +3,7 @@ empty() {
 }
 
 prompt_indicator() {
-   echo $'%B\u276f%b'
+   echo $'» '
 }
 
 username() {
@@ -41,4 +41,4 @@ ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[magenta]%} ^%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[white]%} *%{$reset_color%}"
 
 PROMPT='$(directory) $(git_prompt)
-$(prompt_indicator) '
+$(prompt_indicator)'
