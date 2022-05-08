@@ -31,6 +31,9 @@ alias vim="nvim"
 alias vrc="vim ~/.config/nvim"
 alias batcave="cd ~/.config/nvim && nvim"
 
+# Zettool
+alias z="/Users/charlie/github.com/charlieroth/zettool/z"
+
 # Node/NPM
 alias cpj="cat package.json | fzf"
 
@@ -49,6 +52,7 @@ alias ggpush="git push origin $(git_current_branch)"
 alias ggpull="git pull origin $(git_current_branch)"
 alias gfp="git fetch && git pull"
 
+alias python="/opt/homebrew/bin/python3"
 
 # Tools
 alias zig="/Users/charlie/Tools/zig/zig"
@@ -57,11 +61,14 @@ alias urb="cd ~/Urbit && ./urbit waltyr-dacmus"
 alias livebook="cd ~/Tools/livebook && MIX_ENV=prod mix phx.server"
 
 export ZSH=$HOME/.oh-my-zsh
-export VIMRUNTIME="/opt/homebrew/Cellar/neovim/0.6.1/share/nvim/runtime/"
+export VIMRUNTIME="/opt/homebrew/Cellar/neovim/0.7.0/share/nvim/runtime/"
 export TERM=xterm-256color
 export EDITOR=nvim
+export CGO_ENABLED=1
+export GOPATH="/Users/charlie/go"
 
 # PATH
+export PATH=$PATH:$GOPATH/bin
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH=$PATH:/Users/charlie/bin
 export PATH=/Users/charlie/.cache/rebar3/bin:$PATH
@@ -104,3 +111,6 @@ if [ -f '/Users/charlie/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/charlie
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/charlie/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/charlie/google-cloud-sdk/completion.zsh.inc'; fi
+
+# opam configuration
+[[ ! -r /Users/charlie/.opam/opam-init/init.zsh ]] || source /Users/charlie/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
