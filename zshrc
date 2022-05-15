@@ -31,8 +31,8 @@ alias vim="nvim"
 alias vrc="vim ~/.config/nvim"
 alias batcave="cd ~/.config/nvim && nvim"
 
-# Zettool
-alias z="/Users/charlie/github.com/charlieroth/zettool/z"
+# Bootkeg
+alias bk="/Users/charlie/github.com/charlieroth/bootkeg/bk"
 
 # Node/NPM
 alias cpj="cat package.json | fzf"
@@ -55,7 +55,6 @@ alias gfp="git fetch && git pull"
 alias python="/opt/homebrew/bin/python3"
 
 # Tools
-alias zig="/Users/charlie/Tools/zig/zig"
 alias elixirls="/Users/charlie/Tools/elixirls/language_server.sh"
 alias urb="cd ~/Urbit && ./urbit waltyr-dacmus"
 alias livebook="cd ~/Tools/livebook && MIX_ENV=prod mix phx.server"
@@ -64,11 +63,16 @@ export ZSH=$HOME/.oh-my-zsh
 export VIMRUNTIME="/opt/homebrew/Cellar/neovim/0.7.0/share/nvim/runtime/"
 export TERM=xterm-256color
 export EDITOR=nvim
+export KEG_ROOT=/Users/charlie/github.com/charlieroth/me
+export KEG_ZET=/Users/charlie/github.com/charlieroth/me/zet
+export KEG_POST=/Users/charlie/github.com/charlieroth/me/post
+export KEG_NOTE=/Users/charlie/github.com/charlieroth/me/note
 export CGO_ENABLED=1
 export GOPATH="/Users/charlie/go"
 
 # PATH
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/Users/charlie/Tools/zig
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH=$PATH:/Users/charlie/bin
 export PATH=/Users/charlie/.cache/rebar3/bin:$PATH
