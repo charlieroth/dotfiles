@@ -21,43 +21,27 @@ function git_current_branch() {
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
-# General Aliases
+# General
 alias cl="clear"
 alias lp="lsof -Pi | grep LISTEN"
 alias lsn="ps -ef | grep node"
+alias sz="source ~/.zshrc"
+alias urb="ssh waltyr@164.92.150.194"
 
 # Vim
 alias vim="nvim"
-alias vrc="vim ~/.config/nvim"
-alias batcave="cd ~/.config/nvim && nvim"
+alias vcf="vim ~/.config/nvim"
+alias vz="vim ~/.zshrc"
 
-# Bootkeg
-alias bk="/Users/charlie/github.com/charlieroth/bootkeg/bk"
-
-# Node/NPM
-alias cpj="cat package.json | fzf"
-
-# tmux
+# Tmux
 alias tks="tmux kill-server"
 
 # Version Control
 alias lg="lazygit"
-alias ga="git add"
-alias gcm="git commit -m"
-alias gct="git checkout"
-alias gcb="git checkout -b"
-alias gd="git diff"
-alias gs="git status"
-alias ggpush="git push origin $(git_current_branch)"
 alias ggpull="git pull origin $(git_current_branch)"
 alias gfp="git fetch && git pull"
 
 alias python="/opt/homebrew/bin/python3"
-
-# Tools
-alias elixirls="/Users/charlie/Tools/elixirls/language_server.sh"
-alias urb="cd ~/Urbit && ./urbit waltyr-dacmus"
-alias livebook="cd ~/Tools/livebook && MIX_ENV=prod mix phx.server"
 
 export ZSH=$HOME/.oh-my-zsh
 export VIMRUNTIME="/opt/homebrew/Cellar/neovim/0.7.0/share/nvim/runtime/"
@@ -68,17 +52,17 @@ export KEG_ZET=/Users/charlie/github.com/charlieroth/me/zet
 export KEG_POST=/Users/charlie/github.com/charlieroth/me/post
 export KEG_NOTE=/Users/charlie/github.com/charlieroth/me/note
 export CGO_ENABLED=1
-export GOPATH="/Users/charlie/go"
+export GOPATH=/Users/charlie/go
 
 # PATH
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/Users/charlie/Tools/zig
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export PATH=$PATH:/Users/charlie/bin
-export PATH=/Users/charlie/.cache/rebar3/bin:$PATH
-export PATH="/Users/charlie/.deno/bin:$PATH"
-export PATH="/Users/charlie/zls:$PATH"
-export PATH=$PATH:~/.npm-global/bin
+export PATH=$PATH:/opt/homebrew/opt/ruby/bin
+export PATH=$PATH:/Users/charlie/.deno/bin
+export PATH=$PATH:/Users/charlie/.npm-global/bin
+export PATH=$PATH:/Users/charlie/github.com/charlieroth/bin
+export PATH=$PATH:/Users/charlie/github.com/charlieroth/bootkeg/bin
+export PATH=$PATH:/Users/charlie/github.com/ziglang/zig
+export PATH=$PATH:/Users/charlie/github.com/zigtools/zls/zig-out/bin
 
 source $ZSH/oh-my-zsh.sh
 
