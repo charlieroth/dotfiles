@@ -57,15 +57,11 @@ Installation:
 
 ## NVM (Node Version Manager)
 
-[Install & Update](https://github.com/nvm-sh/nvm#installing-and-updating)
+[Docs](https://github.com/nvm-sh/nvm)
 
-Installation:
 ```bash
-> curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | fish`
-```
-
-Confirm Installation:
-```bash
+> curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | fish
+> which nvim
 > nvm list
 > nvm install node
 ```
