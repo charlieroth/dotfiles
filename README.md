@@ -2,16 +2,6 @@
 
 Dotfiles and tools I usually install when setting up a new machine
 
-## Using This Repo
-``` bash
-> git clone https://github.com/charlieroth/dotfiles.git ~/char/dotfiles
-> cd ~/char/dotfiles
-> chmod +x install.sh
-> sh install.sh
-```
-
-
-# MacOS
 
 ## Raycast
 
@@ -19,36 +9,53 @@ A blazingly fast, totally extendable launcher. It lets you complete tasks, calcu
 
 Download: `https://www.raycast.com/`
 
+## Kitty
+
+The fast, feature-rich, GPU based terminal emulator
+
+[Docs](https://sw.kovidgoyal.net/kitty/)
 
 ## Homebrew
-
-MacOS package manager
 
 Installation:
 ```bash
 > /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-
 > brew --version
-
-> brew install python@3.9 go gopls lazygit gh rust-analyzer sqlite deno neovim lua-language-server tree tree-sitter ripgrep netlify-cli
+> brew install python@3.9 \
+        go \
+        gopls \
+        lazygit \
+        gh \
+        rust-analyzer \
+        sqlite \
+        deno \
+        neovim \
+        lua-language-server \
+        tree \
+        tree-sitter \
+        ripgrep \
+        netlify-cli
 ```
 
-## Oh My Zsh
+## Fish & oh-my-fish
 
-Framework for managing `zsh` configuration
-
-Installation:
 ```bash
-> sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+> brew install fish
+> which fish
+> sudo echo "$(which fish)" >> /etc/shells
+> chsh -s /opt/homebrew/bin/fish
 ```
 
+## Dotfiles
 
-## Neovim
-
-Vim-fork focused on extensibility and usability
-
-Install: `https://github.com/neovim/neovim/wiki/Installing-Neovim`
-
+``` bash
+> cd $HOME
+> mkdir github.com && cd github.com
+> mkdir charlieroth && cd charlieroth
+> git clone https://github.com/charlieroth/dotfiles.git
+> chmod +x setup.sh
+> ./setup.sh
+```
 
 ## NVM (Node Version Manager)
 
@@ -56,7 +63,7 @@ Install: `https://github.com/neovim/neovim/wiki/Installing-Neovim`
 
 Installation:
 ```bash
-> curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash`
+> curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | fish`
 ```
 
 Confirm Installation:
