@@ -1,5 +1,1 @@
-require('zen-mode').toggle({
-    window = {
-        width = 0.85
-    }
-})
+require('zen-mode').toggle({window = {width = 0.85}})

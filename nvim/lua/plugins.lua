@@ -1,7 +1,10 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    PackerBootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+    PackerBootstrap = fn.system({
+        'git', 'clone', '--depth', '1',
+        'https://github.com/wbthomason/packer.nvim', install_path
+    })
 end
 
 return require('packer').startup(function(use)
@@ -29,16 +32,15 @@ return require('packer').startup(function(use)
     use {
         'nvim-telescope/telescope.nvim',
         requires = {
-            { 'nvim-lua/popup.nvim' },
-            { 'nvim-lua/plenary.nvim' },
-            { 'nvim-telescope/telescope-file-browser.nvim' },
+            {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'},
+            {'nvim-telescope/telescope-file-browser.nvim'}
         }
     }
 
     -- Statusline
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 
     -- Comments
@@ -48,10 +50,7 @@ return require('packer').startup(function(use)
     use 'tjdevries/colorbuddy.nvim'
     use 'EdenEast/nightfox.nvim'
     use 'ellisonleao/gruvbox.nvim'
-    use({
-        "catppuccin/nvim",
-        as = "catppuccin"
-    })
+    use({"catppuccin/nvim", as = "catppuccin"})
 
     -- Git
     use 'lewis6991/gitsigns.nvim'
@@ -62,14 +61,7 @@ return require('packer').startup(function(use)
     use 'urbit/hoon.vim'
 
     -- Zen
-    use {
-        'folke/zen-mode.nvim',
-        config = function()
-            require('c.zen')
-        end
-    }
+    use {'folke/zen-mode.nvim', config = function() require('c.zen') end}
 
-    if PackerBootstrap then
-        require('packer').sync()
-    end
+    if PackerBootstrap then require('packer').sync() end
 end)

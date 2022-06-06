@@ -29,14 +29,11 @@ cmp.setup({
             else
                 fallback()
             end
-        end,
+        end
     }),
     sources = {
-        {name = "nvim_lsp"},
-        {name = "nvim_lua"},
-        {name = "luasnip"},
-        {name = "buffer"},
-        {name = "path"}
+        {name = "nvim_lsp"}, {name = "nvim_lua"}, {name = "luasnip"},
+        {name = "buffer"}, {name = "path"}
     },
     window = {
         documentation = {

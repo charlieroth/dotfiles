@@ -1,6 +1,6 @@
 require('yode-nvim').setup({})
 local map = require('c.utils').map
-local opts = { noremap = true, silent = true }
+local opts = {noremap = true, silent = true}
 
 map('v', '<Leader>yc', ':YodeCreateSeditorFloating<cr>', opts)
 map('n', 'yr', ':YodeCreateSeditorReplace<cr>', opts)
