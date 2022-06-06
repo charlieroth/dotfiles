@@ -1,7 +1,4 @@
-# Dotfiles
-
-Dotfiles and tools I usually install when setting up a new machine
-
+`dotfiles` and tools to install when setting up a machine
 
 ## Raycast
 
