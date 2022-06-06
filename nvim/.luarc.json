@@ -1,0 +1,40 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "Lua.diagnostics.globals": [
+        "vim",
+        "ngx"
+    ],
+    "Lua.workspace.checkThirdParty": false,
+    "Lua.workspace.library": [
+        "/Users/charlie/.config/nvim",
+        "/Users/charlie/.local/share/nvim/site",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/cmp-path",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/kommentary",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/LuaSnip",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-lsputils",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/packer.nvim",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/popfix",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/popup.nvim",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/yode-nvim",
+        "/opt/homebrew/Cellar/neovim/HEAD-233014f/share/nvim/runtime/",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/cmp-buffer/after",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/cmp-cmdline/after",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/cmp-path/after",
+        "/Users/charlie/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after",
+        "${3rd}/OpenResty/library"
+    ]
+}
