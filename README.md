@@ -41,6 +41,7 @@ Installation:
 > which fish
 > sudo echo "$(which fish)" >> /etc/shells
 > chsh -s /opt/homebrew/bin/fish
+> curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 ```
 
 ## Dotfiles
