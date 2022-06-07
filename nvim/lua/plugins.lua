@@ -60,8 +60,5 @@ return require('packer').startup(function(use)
     use 'ziglang/zig.vim'
     use 'urbit/hoon.vim'
 
-    -- Zen
-    use {'folke/zen-mode.nvim', config = function() require('c.zen') end}
-
     if PackerBootstrap then require('packer').sync() end
 end)
