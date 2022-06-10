@@ -7,7 +7,7 @@ M.setup = function()
     local config = require('lsp.config')
 
     local languages = {
-        lua = {formatCommand = "lua-format -i", formatStdin = true},
+        lua = {luafmt},
         typescript = {prettier},
         javascript = {prettier},
         typescriptreact = {prettier},
