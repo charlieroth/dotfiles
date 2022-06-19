@@ -1,3 +1,8 @@
+" esc in insert & visual mode
+inoremap jk <esc>
+" esc in command mode
+cnoremap jk <C-C>
+
 set nocompatible
 set autoindent
 set autowrite
@@ -11,10 +16,8 @@ let mapleader=","
 if v:version >= 800
   " stop vim from silently messing with files that it shouldn't
   set nofixendofline
-
   " better ascii friendly listchars
   set listchars=space:*,trail:*,nbsp:*,extends:>,precedes:<,tab:\|>
-
   " disable automatic folding
   set foldmethod=manual
   set nofoldenable
@@ -22,37 +25,27 @@ endif
 
 " mark trailing spaces as errors
 match IncSearch '\s\+$'
-
 " enough for line numbers + gutter within 80 standard
 set textwidth=72
-
 " replace tabs with spaces automatically
 set expandtab
-
 " disable relative line numbers, remove no to sample it
 set norelativenumber
-
 " disable spellcapcheck
 set spc=
-
 " more risky, but cleaner
 set nobackup
 set noswapfile
 set nowritebackup
-
 set icon
-
 " highlight search hits
 set hlsearch
 set incsearch
 set linebreak
-
 " avoid most of the 'Hit Enter ...' messages
 set shortmess=aoOtTI
-
 " prevents truncated yanks, deletes, etc.
 set viminfo='20,<1000,s1000
-
 " not a fan of bracket matching or folding
 if has("eval") " vim-tiny detection
   let g:loaded_matchparen=1
@@ -61,15 +54,11 @@ set noshowmatch
 
 " wrap around when searching
 set wrapscan
-
 set backspace=indent,eol,start
-
 " stop complaints about switching buffer with changes
 set hidden
-
 " command history
 set history=100
-
 " here because plugins and stuff need it
 if has("syntax")
   syntax enable
@@ -77,11 +66,8 @@ endif
 
 " faster scrolling
 set ttyfast
-
-
 " allow sensing the filetype
 filetype plugin on
-
 " high contrast for streaming, etc.
 set background=dark
 
@@ -105,7 +91,6 @@ hi vimTodo ctermbg=236 ctermfg=darkred
 hi Todo ctermbg=236 ctermfg=darkred
 hi IncSearch ctermbg=236 cterm=NONE ctermfg=darkred
 hi MatchParen ctermbg=236 ctermfg=darkred
-
 " color overrides
 au FileType * hi StatusLine ctermfg=black ctermbg=NONE
 au FileType * hi StatusLineNC ctermfg=black ctermbg=NONE

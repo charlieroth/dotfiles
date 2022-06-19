@@ -1,15 +1,15 @@
 #!/bin/bash
 
-GITCONFIG="$HOME/github.com/charlieroth/dotfiles/gitconfig"
+BASHRC="$HOME/github.com/charlieroth/dotfiles/bashrc"
+PROFILE="$HOME/github.com/charlieroth/dotfiles/profile"
+BASH_PROFILE="$HOME/github.com/charlieroth/dotfiles/bash_profile"
 VIM="$HOME/github.com/charlieroth/dotfiles/vimrc"
-KITTY="$HOME/github.com/charlieroth/dotfiles/kitty"
-FISH="$HOME/github.com/charlieroth/dotfiles/fish"
-NVIM="$HOME/github.com/charlieroth/dotfiles/nvim"
+GITCONFIG="$HOME/github.com/charlieroth/dotfiles/gitconfig"
 
+ln -sf $PROFILE ~/.profile
+ln -sf $BASHRC ~/.bashrc
+ln -sf $BASH_PROFILE ~/.bash_profile
 ln -sf $GITCONFIG ~/.gitconfig
 ln -sf $VIM ~/.vimrc
-ln -sf $KITTY ~/.config/kitty
-ln -sf $FISH ~/.config/fish
-ln -sf $NVIM ~/.config/nvim
 
 echo "dotfiles setup.sh: symlink complete"
