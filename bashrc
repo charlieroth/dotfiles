@@ -1,15 +1,20 @@
+# ---------- variables ----------
 export USER="${USER:-$(whoami)}"
+
 export GITUSER="charlieroth"
 export GHREPOS="$HOME/github.com/$GITUSER"
+
 export DOT="$HOME/github.com/$GITUSER/dotfiles"
 export DESKTOP="$HOME/Desktop"
 export DOCUMENTS="$HOME/Documents"
 export DOWNLOADS="$HOME/Downloads"
-export ZETDIR="$GHREPOS/zet"
+
 export HRULEWIDTH=73
-export EDITOR=vim
-export VISUAL=vim
+
+export EDITOR=nvim
+export VISUAL=nvim
 export TERM=xterm-256color
+
 export GOPRIVATE="github.com/$GITUSER/*"
 export GOPATH="$HOME/.local/share/go"
 export GOBIN="$HOME/.local/bin"
@@ -46,7 +51,7 @@ __ps1() {
   [[ $B = master || $B = main ]] && b="$r"
   [[ -n "$B" ]] && B="$g($b$B$g)"
 
-  short="$u\u$g$PROMPT_AT$h\h$g:$w$dir$B$p$P$x "
+  short="$u\u:$w$dir$B$p$P$x "
   long="$g╔ $u\u$g$PROMPT_AT$h\h$g:$w$dir$B\n$g╚ $p$P$x "
   double="$g╔ $u\u$g$PROMPT_AT$h\h$g:$w$dir\n$g║ $B\n$g╚ $p$P$x "
   PS1="$short"
@@ -55,6 +60,11 @@ __ps1() {
 PROMPT_COMMAND="__ps1"
 
 # ---------- aliases ----------
+alias gs='git status'
+alias gcm='git commit -m'
+alias gc='git commit'
+
+alias nv='nvim'
 alias ls='ls -h --color=auto'
 alias chmox='chmod +x'
 alias dot='cd $DOT'

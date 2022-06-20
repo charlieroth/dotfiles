@@ -4,6 +4,7 @@ BASHRC="$HOME/github.com/charlieroth/dotfiles/bashrc"
 PROFILE="$HOME/github.com/charlieroth/dotfiles/profile"
 BASH_PROFILE="$HOME/github.com/charlieroth/dotfiles/bash_profile"
 VIM="$HOME/github.com/charlieroth/dotfiles/vimrc"
+NVIM="$HOME/github.com/charlieroth/dotfiles/nvim"
 GITCONFIG="$HOME/github.com/charlieroth/dotfiles/gitconfig"
 TMUX="$HOME/github.com/charlieroth/dotfiles/tmux.conf"
 
@@ -12,6 +13,7 @@ ln -sf $BASHRC ~/.bashrc
 ln -sf $BASH_PROFILE ~/.bash_profile
 ln -sf $GITCONFIG ~/.gitconfig
 ln -sf $VIM ~/.vimrc
+ln -sf $NVIM ~/.config/nvim
 ln -sf $TMUX ~/.tmux.conf
 
 echo "dotfiles setup.sh: symlink complete"
