@@ -17,12 +17,12 @@ M.setup = function()
             selection_strategy = "reset",
             sorting_strategy = "descending",
             path_display = {},
-            set_env = {["COLORTERM"] = "truecolor"},
+            set_env = { ["COLORTERM"] = "truecolor" },
             vimgrep_arguments = {
                 "rg", "--color=never", "--no-heading", "--with-filename",
                 "--line-number", "--column", "--smart-case"
             },
-            file_ignore_patterns = {"_build", "deps", "node_modules", "target"},
+            file_ignore_patterns = { "_build", "deps", "node_modules", "target" },
             file_sorter = require("telescope.sorters").get_fuzzy_file,
             generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
             file_previewer = require("telescope.previewers").vim_buffer_cat.new,
@@ -33,10 +33,10 @@ M.setup = function()
             buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker
         },
         pickers = {
-            find_files = {theme = "dropdown", previewer = false},
-            git_files = {theme = "dropdown", previewer = false},
-            live_grep = {theme = "ivy"},
-            code_action = {theme = "cursor"}
+            find_files = { theme = "dropdown", previewer = false },
+            git_files = { theme = "dropdown", previewer = false },
+            live_grep = { theme = "ivy" },
+            code_action = { theme = "cursor" }
         }
     }
 end

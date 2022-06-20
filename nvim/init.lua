@@ -1,4 +1,5 @@
 require('plugins')
-require('c.editor')
-require('c.keymaps')
-require('c.telescope')
+require('editor')
+require('keymaps')
+require('scope')
+require('lsp')

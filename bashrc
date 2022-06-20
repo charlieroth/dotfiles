@@ -98,13 +98,9 @@ export NVM_DIR="$HOME/.nvm"
 alias gs='git status'
 alias gcm='git commit -m'
 alias gc='git commit'
-
 alias tks='tmux kill-server'
-
 alias nv='nvim'
-
 alias ls='ls -h --color=auto'
-
+alias cl='clear'
 alias chmox='chmod +x'
-
 alias dot='cd $DOT'
