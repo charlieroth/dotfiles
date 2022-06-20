@@ -29,12 +29,30 @@ export LESS_TERMCAP_so="[34m" # blue
 export LESS_TERMCAP_ue="" # "0m"
 export LESS_TERMCAP_us="[4m"  # underline
 
-# ---------- prompt ----------
+# ---------- funcs ----------
+nvm_switch() {
+  if [[ $PWD == $PREV_PWD ]]; then
+    return
+  fi
+
+  if [[ "$PWD" =~ "$PREV_PWD" && ! -f ".nvmrc" ]]; then
+    return
+  fi
+
+  PREV_PWD=$PWD
+  if [[ -f ".nvmrc" ]]; then
+    nvm use
+    NVM_DIRTY=true
+  elif [[ $NVM_DIRTY = true ]]; then
+    nvm use default
+    NVM_DIRTY=false
+  fi
+}
+
 PROMPT_LONG=20
 PROMPT_MAX=95
 PROMPT_AT=@
-
-__ps1() {
+set_prompt() {
   local P='$' dir="${PWD##*/}" B countme short long double\
     r='\[\e[31m\]' g='\[\e[30m\]' h='\[\e[34m\]' \
     u='\[\e[33m\]' p='\[\e[34m\]' w='\[\e[35m\]' \
@@ -57,14 +75,36 @@ __ps1() {
   PS1="$short"
 }
 
-PROMPT_COMMAND="__ps1"
+prompt_command() {
+    set_prompt
+    nvm_switch
+}
+
+export PROMPT_COMMAND=prompt_command
+
+# ---------- path ----------
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/opt/homebrew/opt/ruby/bin
+export PATH=$PATH:/Users/charlie/.deno/bin
+export PATH=$PATH:/Users/charlie/.npm-global/bin
+export PATH=$PATH:/Users/charlie/github.com/charlieroth/bin
+
+# ---------- nvm ----------
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ---------- aliases ----------
 alias gs='git status'
 alias gcm='git commit -m'
 alias gc='git commit'
 
+alias tks='tmux kill-server'
+
 alias nv='nvim'
+
 alias ls='ls -h --color=auto'
+
 alias chmox='chmod +x'
+
 alias dot='cd $DOT'
