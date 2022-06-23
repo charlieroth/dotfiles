@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/kommentary",
     url = "https://github.com/b3nj5m1n/kommentary"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -119,6 +124,16 @@ _G.packer_plugins = {
     path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-lsputils"] = {
+    loaded = true,
+    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-lsputils",
+    url = "https://github.com/RishabhRD/nvim-lsputils"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -128,6 +143,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  popfix = {
+    loaded = true,
+    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/popfix",
+    url = "https://github.com/RishabhRD/popfix"
   },
   ["popup.nvim"] = {
     loaded = true,
