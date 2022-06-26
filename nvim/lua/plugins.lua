@@ -27,5 +27,16 @@ return require('packer').startup(function(use)
     use 'hrsh7th/nvim-cmp'
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
+
+    use { 'mfussenegger/nvim-dap' }
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+    use { 'theHamsta/nvim-dap-virtual-text' }
+    use { 'rcarriga/nvim-dap-ui' }
+    use { 'leoluz/nvim-dap-go' }
+    use { 'Pocco81/dap-buddy.nvim', commit = '24923c3819a450a772bb8f675926d530e829665f' }
+
     if PackerBootstrap then require('packer').sync() end
 end)
