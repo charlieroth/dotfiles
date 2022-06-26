@@ -86,6 +86,7 @@ export PROMPT_COMMAND=prompt_command
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/opt/homebrew/opt/ruby/bin
 export PATH=$PATH:/Users/charlie/.deno/bin
+export PATH=$PATH:/Users/charlie/.local/bin
 export PATH=$PATH:/Users/charlie/.npm-global/bin
 export PATH=$PATH:/Users/charlie/github.com/charlieroth/bin
 

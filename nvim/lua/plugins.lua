@@ -9,23 +9,42 @@ end
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+
     use 'ellisonleao/gruvbox.nvim'
+
     use 'b3nj5m1n/kommentary'
+
     use 'nvim-lua/popup.nvim'
+
     use 'nvim-lua/plenary.nvim'
+
     use 'kyazdani42/nvim-web-devicons'
+
     use 'nvim-lualine/lualine.nvim'
+
     use 'nvim-telescope/telescope-file-browser.nvim'
     use 'nvim-telescope/telescope.nvim'
+
     use 'neovim/nvim-lspconfig'
-    use 'RishabhRD/popfix'
     use 'RishabhRD/nvim-lsputils'
+    use 'RishabhRD/popfix'
+
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
+
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
+
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+    use 'mfussenegger/nvim-dap'
+    use 'rcarriga/nvim-dap-ui'
+    use 'leoluz/nvim-dap-go'
+
     if PackerBootstrap then require('packer').sync() end
 end)

@@ -33,6 +33,8 @@ vim.opt.wildmode = 'longest,full'
 
 vim.opt.completeopt = 'menuone,noinsert,noselect'
 
+vim.opt.signcolumn = 'yes'
+
 vim.opt.lazyredraw = true
 
 vim.opt.showmatch = true
