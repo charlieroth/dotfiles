@@ -4,7 +4,7 @@ local servers = {
     { name = 'sumneko_lua', location = 'lsp.sumneko_lua', enabled = true },
     { name = 'tsserver', location = 'lsp.tsserver', enabled = true },
     { name = 'gopls', location = 'lsp.gopls', enabled = true },
-    { name = 'zls', location = 'lsp.zls', enabled = false },
+    { name = 'zls', location = 'lsp.zls', enabled = true },
     { name = 'efm', location = 'lsp.efm', enabled = false },
 }
 

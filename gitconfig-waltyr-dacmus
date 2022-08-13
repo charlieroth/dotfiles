@@ -1,0 +1,41 @@
+[user]
+  name = waltyr-dacmus
+  email = waltyr-dacmus@tacittech.org
+
+[alias]
+  lg = log --pretty=format:'%h - %an [%ar] %s'
+  l = log --oneline --decorate --graph --all
+  co = checkout
+  cob = checkout -b
+  ci = commit
+  cim = commit -m
+  st = status
+  br = branch
+
+[push]
+  default = current
+
+[github]
+  user = waltyr-dacmus
+
+[apply]
+  whitespace = nowarn
+
+[help]
+  autocorrect = 1
+
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = nvim
+
+[log]
+  date = relative
+
+[init]
+  defaultBranch = main
+
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process

@@ -23,6 +23,7 @@ vim.keymap.set({ 'n' }, '<Leader>gf', ":Telescope git_files<cr>", opts)
 vim.keymap.set({ 'n' }, '<Leader>gs', ":lua require('telescope.builtin').git_status()<cr>", opts)
 vim.keymap.set({ 'n' }, '<Leader>fg', ':Telescope live_grep<cr>', opts)
 vim.keymap.set({ 'n' }, '<Leader>fb', ':Telescope file_browser<cr>', opts)
+vim.keymap.set({ 'n' }, '<Leader>fh', ':Telescope help_tags<cr>', opts)
 vim.keymap.set({ 'n' }, '<Leader>fp', ':!yarn prettier<cr>', opts)
 -- cargo
 vim.keymap.set({ 'n' }, '<Leader>ct', ':!cargo test<cr>', opts)

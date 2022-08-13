@@ -53,7 +53,7 @@ PROMPT_LONG=20
 PROMPT_MAX=95
 PROMPT_AT=@
 set_prompt() {
-  local P='$' dir="${PWD##*/}" B countme short long double\
+  local P='>' dir="${PWD##*/}" B countme short long double\
     r='\[\e[31m\]' g='\[\e[30m\]' h='\[\e[34m\]' \
     u='\[\e[33m\]' p='\[\e[34m\]' w='\[\e[35m\]' \
     b='\[\e[36m\]' x='\[\e[0m\]'
@@ -69,7 +69,7 @@ set_prompt() {
   [[ $B = master || $B = main ]] && b="$r"
   [[ -n "$B" ]] && B="$g($b$B$g)"
 
-  short="$u\u:$w$dir$B$p$P$x "
+  short="$u\u:$dir$B$p$P$x "
   long="$g╔ $u\u$g$PROMPT_AT$h\h$g:$w$dir$B\n$g╚ $p$P$x "
   double="$g╔ $u\u$g$PROMPT_AT$h\h$g:$w$dir\n$g║ $B\n$g╚ $p$P$x "
   PS1="$short"
@@ -88,13 +88,17 @@ export PATH=$PATH:/opt/homebrew/opt/ruby/bin
 export PATH=$PATH:/Users/charlie/.deno/bin
 export PATH=$PATH:/Users/charlie/.local/bin
 export PATH=$PATH:/Users/charlie/.npm-global/bin
-export PATH=$PATH:/Users/charlie/github.com/charlieroth/bin
+export PATH=$PATH:/Users/charlie/git/charlieroth/bin
+export PATH=$PATH:/Users/charlie/git/ziglang/zig
+export PATH=$PATH:/Users/charlie/git/zigtools/zls/zig-out/bin
+export PATH=$PATH:/Users/charlie/.bun/bin
 
 # ---------- nvm ----------
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# 
 # ---------- aliases ----------
 alias gs='git status'
 alias gcm='git commit -m'
@@ -105,3 +109,4 @@ alias ls='ls -h --color=auto'
 alias cl='clear'
 alias chmox='chmod +x'
 alias dot='cd $DOT'
+alias python='python3'

@@ -48,5 +48,8 @@ return require('packer').startup(function(use)
     use { 'leoluz/nvim-dap-go' }
     use { 'Pocco81/dap-buddy.nvim', commit = '24923c3819a450a772bb8f675926d530e829665f' }
 
+    use { 'ziglang/zig.vim' }
+    use { '/Users/charlie/git/waltyr-dacmus/hoon.nvim' }
+
     if PackerBootstrap then require('packer').sync() end
 end)
