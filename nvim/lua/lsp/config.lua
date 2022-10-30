@@ -24,9 +24,7 @@ M.common_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>td', vim.lsp.buf.type_definition, bopts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bopts)
-    vim.keymap.set('n', '<leader>ld', vim.lsp.diagnostic.show_line_diagnostics,
-        bopts)
-    vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bopts)
+    vim.keymap.set("n", "<space>f", vim.lsp.buf.format, bopts)
 end
 
 return M

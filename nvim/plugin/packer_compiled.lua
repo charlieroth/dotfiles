@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,8 +41,10 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
@@ -99,20 +104,25 @@ _G.packer_plugins = {
     path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["dap-buddy.nvim"] = {
+  ["colorbuddy.vim"] = {
     loaded = true,
-    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/dap-buddy.nvim",
-    url = "https://github.com/Pocco81/dap-buddy.nvim"
+    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/colorbuddy.vim",
+    url = "https://github.com/tjdevries/colorbuddy.vim"
   },
-  ["gruvbox.nvim"] = {
+  conjure = {
     loaded = true,
-    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
+    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/conjure",
+    url = "https://github.com/Olical/conjure"
+  },
+  ["gruvbuddy.nvim"] = {
+    loaded = true,
+    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/gruvbuddy.nvim",
+    url = "https://github.com/tjdevries/gruvbuddy.nvim"
   },
   ["hoon.nvim"] = {
     loaded = true,
     path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/hoon.nvim",
-    url = "/Users/charlie/git/waltyr-dacmus/hoon.nvim"
+    url = "https://github.com/waltyr-dacmus/hoon.nvim"
   },
   kommentary = {
     loaded = true,
@@ -129,26 +139,6 @@ _G.packer_plugins = {
     path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
-  ["nvim-dap"] = {
-    loaded = true,
-    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-dap",
-    url = "https://github.com/mfussenegger/nvim-dap"
-  },
-  ["nvim-dap-go"] = {
-    loaded = true,
-    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-dap-go",
-    url = "https://github.com/leoluz/nvim-dap-go"
-  },
-  ["nvim-dap-ui"] = {
-    loaded = true,
-    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
-    url = "https://github.com/rcarriga/nvim-dap-ui"
-  },
-  ["nvim-dap-virtual-text"] = {
-    loaded = true,
-    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
-    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -158,16 +148,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-lsputils",
     url = "https://github.com/RishabhRD/nvim-lsputils"
-  },
-  ["nvim-treesitter"] = {
-    loaded = true,
-    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter"
-  },
-  ["nvim-web-devicons"] = {
-    loaded = true,
-    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -199,6 +179,26 @@ _G.packer_plugins = {
     path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["vim-dispatch-neovim"] = {
+    loaded = true,
+    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/vim-dispatch-neovim",
+    url = "https://github.com/radenling/vim-dispatch-neovim"
+  },
+  ["vim-jack-in"] = {
+    loaded = true,
+    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/vim-jack-in",
+    url = "https://github.com/clojure-vim/vim-jack-in"
+  },
+  ["vim-sexp"] = {
+    loaded = true,
+    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/vim-sexp",
+    url = "https://github.com/guns/vim-sexp"
+  },
+  ["vim-sexp-mappings-for-regular-people"] = {
+    loaded = true,
+    path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/vim-sexp-mappings-for-regular-people",
+    url = "https://github.com/tpope/vim-sexp-mappings-for-regular-people"
+  },
   ["zig.vim"] = {
     loaded = true,
     path = "/Users/charlie/.local/share/nvim/site/pack/packer/start/zig.vim",
@@ -207,6 +207,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)

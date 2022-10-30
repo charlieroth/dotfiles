@@ -19,7 +19,8 @@ vim.opt.guicursor = [[n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50]]
 
 vim.opt.background = 'dark'
 vim.opt.termguicolors = true
-vim.cmd([[colorscheme gruvbox]])
+-- require('colorbuddy').colorscheme('gruvbuddy')
+-- require('colors').boring()
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

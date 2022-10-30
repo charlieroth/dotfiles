@@ -9,7 +9,7 @@ M.setup = function()
 
     return {
         on_attach = function(client, bufnr)
-            client.resolved_capabilities.document_formatting = true
+            client.server_capabilities.document_formatting = true
             config.common_attach(client, bufnr)
         end,
         cmd = { "gopls" },

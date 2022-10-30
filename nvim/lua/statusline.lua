@@ -1,7 +1,7 @@
 require('lualine').setup {
     options = {
+        -- theme = 'wombat',
         icons_enabled = true,
-        theme = 'gruvbox',
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {},
@@ -10,7 +10,7 @@ require('lualine').setup {
     },
     sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_b = { 'branch' },
         lualine_c = { 'filename' },
         lualine_x = { 'filetype' },
         lualine_y = { 'progress' },

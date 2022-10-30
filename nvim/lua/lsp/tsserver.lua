@@ -7,10 +7,13 @@ M.setup = function()
     local bin_name = 'typescript-language-server'
     local cmd = { bin_name, '--stdio' }
 
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
+
     return {
         on_attach = function(client, bufnr)
-            client.resolved_capabilities.document_formatting = true
-            client.resolved_capabilities.document_range_formatting = true
+            client.server_capabilities.document_formatting = true
+            client.server_capabilities.document_range_formatting = true
             config.common_attach(client, bufnr)
         end,
         settings = {

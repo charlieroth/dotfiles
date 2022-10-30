@@ -35,3 +35,5 @@ vim.keymap.set({ 'n' }, '<Leader>zr', ':!zig run %<cr>', opts)
 -- TODO(charlieroth): add maps for gofmt
 -- Other
 vim.keymap.set({ 'n' }, '<Leader>h', ':set hlsearch!<cr>', opts)
+-- Clojure
+vim.keymap.set({ 't' }, '<Esc>', '<C-\\><C-n>', opts)

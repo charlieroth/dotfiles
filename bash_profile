@@ -6,3 +6,5 @@ if [ -n "$BASH_VERSION" ] && [ -f $HOME/.bashrc ];then
     source $HOME/.bashrc
 fi
 
+
+[[ -f ~/.bashrc ]] && source ~/.bashrc # ghcup-envexport PATH="/opt/homebrew/opt/llvm/bin:$PATH"
