@@ -14,12 +14,11 @@ export GITUSER="charlieroth"
 export PLATFORM="mac"
 export REPOS="$HOME/github.com"
 export GHREPOS="$HOME/github.com/$GITUSER"
-export DOTFILES="$GHREPOS/dotfiles"
-export SNIPPETS="$DOTFILES/snippets"
+export DOTFILES="$HOME/dotfiles"
 export DESKTOP="$HOME/Desktop"
 export DOCUMENTS="$HOME/Documents"
 export DOWNLOADS="$HOME/Downloads"
-export SCRIPTS="$HOME/Scripts"
+export SCRIPTS="$HOME/dotfiles/scripts"
 export ICLOUD_SECOND_BRAIN=("/Users/charlie/Library/Mobile Documents/iCloud~md~obsidian/Documents/Neural Garden")
 export SECOND_BRAIN="$HOME/garden"
 export HRULEWIDTH=73
@@ -87,7 +86,6 @@ unalias -a
 
 alias v=nvim
 
-alias todo='nvim ~/.todo'
 alias ip='ip -c'
 alias free='free -h'
 alias tree='tree -a'
@@ -100,7 +98,6 @@ alias iam=live
 # cd
 alias dot="cd $DOTFILES"
 alias scripts="cd $SCRIPTS"
-alias snippets="cd $SNIPPETS"
 alias repos="cd $GHREPOS"
 
 # ls
