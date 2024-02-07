@@ -118,8 +118,24 @@ require("lualine").setup({
 -- nvim_comment
 require("nvim_comment").setup()
 
+-- treesitter
+require("nvim-treesitter.configs").setup {
+  ensure_installed = {
+    "bash",
+    "lua",
+    "luadoc",
+    "go",
+    "rust",
+    "javascript",
+    "typescript",
+    "tsx"
+  },
+  sync_install = false,
+  auto_install = true,
+}
+
 -- telescope
-require("telescope").setup{}
+require("telescope").setup({})
 local builtin = require('telescope.builtin')
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.git_files, {})
@@ -130,7 +146,8 @@ vim.keymap.set("n", "<leader>tgs", builtin.git_status, {})
 local harpoon = require("harpoon")
 harpoon:setup({})
 vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
-vim.keymap.set("n", "<leader>hl", function() harpoon.ui:toogle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<leader>d", function() harpoon:list():remove() end)
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toogle_quick_menu(harpoon:list()) end)
 vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
 vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
 vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)

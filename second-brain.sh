@@ -1,3 +1,4 @@
 #!/bin/sh
 
-ln -sf "$CLOUD_SECOND_BRAIN" ~/garden
+SECOND_BRAIN=("/Users/charlie/Library/Mobile Documents/iCloud~md~obsidian/Documents/Neural Garden")
+ln -sf "$SECOND_BRAIN" ~/garden
