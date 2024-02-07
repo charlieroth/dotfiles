@@ -3,4 +3,5 @@ docs
 .gitignore
 .git
 brew-installer.sh
+second-brain.sh
 .DS_Store

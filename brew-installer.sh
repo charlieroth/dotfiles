@@ -19,7 +19,6 @@ exec brew install coreutils \
   curl \
   wget \
   bash \
-  gdb \
   gpatch \
   m4 \
   make \
@@ -34,14 +33,9 @@ exec brew install coreutils \
   gpg \
   jq \
   bash \
-  golang \
+  go \
   kubectl \
   gh \
   pandoc \
   nmap \
-  fd \
-
-echo "Now don't forget:"
-echo "  Add /usr/local/bin/bash to /etc/shells"
-echo "  Run chsh -s /usr/local/bin/bash"
-echo "  Use #!/usr/bin/env bash as shebang line"
+  fd
