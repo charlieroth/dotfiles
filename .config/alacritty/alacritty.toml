@@ -1,24 +1,28 @@
 shell={program = "/bin/bash", args = ["--login"] }
 
-import=[
-  # "/Users/charlie/.config/alacritty/themes/themes/catppuccin-latte.toml"
-  # "/Users/charlie/.config/alacritty/themes/themes/catppuccin-frappe.toml"
-  # "/Users/charlie/.config/alacritty/themes/themes/catppuccin-macchiato.toml"
-  "/Users/charlie/.config/alacritty/themes/themes/catppuccin-mocha.toml"
-]
+import=["/Users/charlie/.config/alacritty/themes/themes/catppuccin-mocha.toml"]
 
 [env]
-TERM="xterm-256color"
+TERM = "xterm-256color"
 
 [font]
-size=23
+size = 25
 
 [font.normal]
-family="FiraMono Nerd Font Mono"
+family = "UbuntuMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "UbuntuMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "UbuntuMono Nerd Font"
+style = "Italic"
 
 [window]
-decorations="none"
+decorations = "none"
 
 [window.padding]
-x=7
-y=0
+x = 7
+y = 0
