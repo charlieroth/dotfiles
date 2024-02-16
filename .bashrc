@@ -64,19 +64,10 @@ __ps1() {
 	countme="$USER$PROMPT_AT$(hostname):$dir($B)\$ "
 
 	[[ $B == master || $B == main ]] && b="$r"
-	[[ -n "$B" ]] && B="$g($b$B$g)"
+	[[ -n "$B" ]] && B="($b$B)"
 
-	short="$u\u$g$PROMPT_AT$h\h$g:$w$dir$B$p$P$x "
-	long="$g╔ $u\u$g$PROMPT_AT$h\h$g:$w$dir$B\n$g╚ $p$P$x "
-	double="$g╔ $u\u$g$PROMPT_AT$h\h$g:$w$dir\n$g║ $B\n$g╚ $p$P$x "
-
-	if ((${#countme} > PROMPT_MAX)); then
-		PS1="$double"
-	elif ((${#countme} > PROMPT_LONG)); then
-		PS1="$long"
-	else
-		PS1="$short"
-	fi
+	short="$u\u$PROMPT_AT\h:$w$dir$B$p$P$x "
+  PS1="$short"
 }
 
 PROMPT_COMMAND="__ps1"
