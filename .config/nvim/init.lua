@@ -11,8 +11,8 @@ vim.opt.ignorecase = true
 vim.opt.spell = true
 vim.opt.foldmethod = "manual"
 vim.opt.foldenable = false
-vim.opt.number = false
-vim.opt.relativenumber = false
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 vim.opt.scrolloff = 8
 vim.opt.linebreak = true
