@@ -12,14 +12,14 @@
   default = current
 
 [user]
-	name = charlieroth
-	email = charlieroth4@icloud.com
+  name = charlieroth
+  email = charlieroth4@gmail.com
 
 [github]
   user = charlieroth
 
 [credential]
-	username = charlieroth
+  username = charlieroth
 
 [apply]
   whitespace = nowarn

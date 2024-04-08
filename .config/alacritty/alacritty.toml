@@ -1,4 +1,4 @@
-shell={program = "/bin/bash", args = ["--login"] }
+shell={program = "/opt/homebrew/bin/fish" }
 
 import=["/Users/charlie/.config/alacritty/themes/themes/catppuccin-mocha.toml"]
 
