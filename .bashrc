@@ -8,6 +8,7 @@ _source_if() { [[ -r "$1" ]] && source "$1"; }
 
 # ---- environment variables ----
 export SHELL=/bin/bash
+export BASH_SILENCE_DEPRECATION_WARNING=1
 export LANG=en_US.UTF-8
 export USER="${USER:-$(whoami)}"
 export GITUSER="charlieroth"
@@ -30,9 +31,15 @@ export GOBIN="$HOME/.local/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
 export CFLAGS="-Wall -Wextra -Werror -O0 -g -fsanitize=address -fno-omit-frame-pointer -finstrument-fucntions"
+export ERL_AFLAGS="-kernel shell_history enabled"
+export MODULAR_HOME="/Users/charlie/.modular"
 
-# Tell Apple to hush
-export BASH_SILENCE_DEPRECATION_WARNING=1
+# ---- PATH ----
+export PATH="$PATH:$MODULAR_HOME/pkg/packages.modular.com_mojo/bin"
+export PATH="$PATH:$HOME/.cabal/bin"
+export PATH="$PATH:$HOME/.ghcup/bin"
+
+
 
 # ---- history ----
 export HISTFILE=~/.histfile
@@ -46,11 +53,9 @@ alias v=nvim
 alias ip='ip -c'
 alias free='free -h'
 alias tree='tree -a'
-alias chmox='chmox +x'
+alias chmox='chmod +x'
 alias diff='diff --color'
 alias c='clear'
-alias coin="clip '(yes|no)'"
-alias iam=live
 
 # cd
 alias dot="cd $DOTFILES"
@@ -66,11 +71,6 @@ alias la='ls -lathr'
 # find all files recursively and sorts by last modifcation, ignore
 # hidden files
 alias last='find . -type -f -not -path "*/\.*" -exec ls -lrt {} +'
-
-# second brain & zettelkasten
-alias sb="cd \$SECOND_BRAIN"
-alias in="cd \$SECOND_BRAIN/0-inbox/"
-alias ztl="cd \$SECOND_BRAIN/00-zettelkasten/"
 
 # git
 alias gs="git status"
@@ -98,24 +98,28 @@ alias gs="git status"
 # 	cd "$name"
 # } && export -f clone
 
-# Node version manager
+# Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-# ---- source external dependencies / completion ----
+# ---- Source External Dependencies / Completion ----
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 _have gh && . <(gh completion -s bash)
 _have pandoc && . <(pandoc --bash-completion)
 
-# ---- personalize configuration ----
+# ---- Personalize Configuration ----
 _source_if "$HOME/.bash_personal"
 _source_if "$HOME/.bash_private"
 _source_if "$HOME/.bash_work"
 
+# ---- Rust ----
 . "$HOME/.cargo/env"
 
+# ---- Zoxide ----
 eval "$(zoxide init bash)"
+
+# ---- Starship ----
 eval "$(starship init bash)"

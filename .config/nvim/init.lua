@@ -59,7 +59,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { "rose-pine/neovim", name = "rose-pine" },
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
@@ -97,8 +97,11 @@ require("lazy").setup({
 })
 
 -- Color Theme
+require("rose-pine").setup({
+    variant = "main", -- auto, main, moon, or dawn
+})
 vim.o.background = "dark"
-vim.cmd.colorscheme "catppuccin-mocha"
+vim.cmd("colorscheme rose-pine")
 
 -- lualine
 require("lualine").setup({
