@@ -1,7 +1,7 @@
 shell = { program = "/bin/bash", args = ["--login"] }
 
 import = [
-  "/Users/charlie/.config/alacritty/themes/themes/catppuccin-mocha.toml",
+  "/Users/charlie/.config/alacritty/themes/themes/rose-pine.toml",
 ]
 
 [env]
