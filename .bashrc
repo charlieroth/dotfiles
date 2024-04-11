@@ -14,13 +14,13 @@ export GITUSER="charlieroth"
 export PLATFORM="mac"
 export REPOS="$HOME/github.com"
 export GHREPOS="$HOME/github.com/$GITUSER"
+export LAB="$GHREPOS/lab"
 export DOTFILES="$HOME/dotfiles"
 export DESKTOP="$HOME/Desktop"
 export DOCUMENTS="$HOME/Documents"
 export DOWNLOADS="$HOME/Downloads"
-export SCRIPTS="$HOME/dotfiles/scripts"
-export CLOUD_SECOND_BRAIN=("/Users/charlie/Library/Mobile Documents/iCloud~md~obsidian/Documents/Neural Garden")
-export SECOND_BRAIN="$HOME/garden"
+export SCRIPTS="$DOTFILES/scripts"
+export SECOND_BRAIN="$DOCUMENTS/Alexandria"
 export HRULEWIDTH=73
 export EDITOR=nvim
 export VISUAL=nvim
@@ -32,49 +32,15 @@ export CGO_ENABLED=0
 export CFLAGS="-Wall -Wextra -Werror -O0 -g -fsanitize=address -fno-omit-frame-pointer -finstrument-fucntions"
 
 # Tell Apple to hush
-export BASH_SILENCE_DEPRECATION_WARNING=1 
-
-[[ -d /.vim/spell ]] && export VIMSPELL=("$HOME/.vim/spell/*.add")
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # ---- history ----
 export HISTFILE=~/.histfile
 export HISTSIZE=25000
 export SAVEHIST=25000
-export HISTCONTROL=ignoreboth
-
-set -o vi
-
-# ---- smart prompt ----
-PROMPT_LONG=20
-PROMPT_MAX=95
-PROMPT_AT=@
-
-__ps1() {
- local P='$' dir="${PWD##*/}" B countme short long double \
-		r='\[\e[31m\]' g='\[\e[30m\]' h='\[\e[34m\]' \
-		u='\[\e[33m\]' p='\[\e[34m\]' w='\[\e[35m\]' \
-		b='\[\e[36m\]' x='\[\e[0m\]'
-
-	[[ $EUID == 0 ]] && P='#' && u=$r && p=$u # root
-	[[ $PWD = / ]] && dir=/
-	[[ $PWD = "$HOME" ]] && dir='~'
-
-	B=$(git branch --show-current 2>/dev/null)
-	[[ $dir = "$B" ]] && B=.
-	countme="$USER$PROMPT_AT$(hostname):$dir($B)\$ "
-
-	[[ $B == master || $B == main ]] && b="$r"
-	[[ -n "$B" ]] && B="($b$B)"
-
-	short="$u\u$PROMPT_AT\h:$w$dir$B$p$P$x "
-  PS1="$short"
-}
-
-PROMPT_COMMAND="__ps1"
+export HISTCONTROL=ignorespace
 
 # ---- aliases ----
-unalias -a
-
 alias v=nvim
 
 alias ip='ip -c'
@@ -90,6 +56,7 @@ alias iam=live
 alias dot="cd $DOTFILES"
 alias scripts="cd $SCRIPTS"
 alias repos="cd $GHREPOS"
+alias lab="cd $GHREPOS"
 
 # ls
 alias ls='ls --color=auto'
@@ -148,3 +115,7 @@ _source_if "$HOME/.bash_personal"
 _source_if "$HOME/.bash_private"
 _source_if "$HOME/.bash_work"
 
+. "$HOME/.cargo/env"
+
+eval "$(zoxide init bash)"
+eval "$(starship init bash)"

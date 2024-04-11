@@ -18,6 +18,8 @@ Refer to the following video on setting up and using `stow`
 
 [Dreams of Autonomy - Stow Has Forever Changed the Way I Manage dotfiles](https://www.youtube.com/watch?v=y6XCebnB9gs)
 
-Install TPM (Tmux Plugin Manager)
+Install [TPM (Tmux Plugin Manager)](https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation)
 
-[README.md](https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation)
+Install [Fisher (Fish Shell Plugin Manager)](https://github.com/jorgebucaran/fisher)
+
+Install [`nvim.fish`](https://github.com/jorgebucaran/nvm.fish)
