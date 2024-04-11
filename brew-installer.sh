@@ -40,4 +40,5 @@ exec brew install coreutils \
   gh \
   neovim \
   zoxide \
-  fzf
+  fzf \
+  starship
