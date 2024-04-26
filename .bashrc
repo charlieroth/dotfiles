@@ -130,7 +130,7 @@ eval "$(zoxide init bash)"
 eval "$(starship init bash)"
 
 # ---- ROS setup ----
-source /opt/ros/iron/setup.bash
+# source /opt/ros/iron/setup.bash
 
 # ---- ASDF (Version Manager for Elixir) ----
 . "$HOME/.asdf/asdf.sh"
