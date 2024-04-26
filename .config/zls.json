@@ -1,0 +1,7 @@
+{
+    "zig_exe_path": "/home/charlie/zig/zig",
+    "zig_lib_path": "/home/charlie/zig/lib",
+    "warn_style": true,
+    "highlight_global_var_declarations": true,
+    "enable_autofix": false
+}

@@ -12,7 +12,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export LANG=en_US.UTF-8
 export USER="${USER:-$(whoami)}"
 export GITUSER="charlieroth"
-export PLATFORM="mac"
+export PLATFORM="linux"
 export REPOS="$HOME/github.com"
 export GHREPOS="$HOME/github.com/$GITUSER"
 export LAB="$GHREPOS/lab"
@@ -20,7 +20,6 @@ export DOTFILES="$HOME/dotfiles"
 export DESKTOP="$HOME/Desktop"
 export DOCUMENTS="$HOME/Documents"
 export DOWNLOADS="$HOME/Downloads"
-export SCRIPTS="$DOTFILES/scripts"
 export SECOND_BRAIN="$DOCUMENTS/Alexandria"
 export HRULEWIDTH=73
 export EDITOR=nvim
@@ -30,16 +29,20 @@ export GOPRIVATE="$GHREPOS/$GITUSER/*"
 export GOBIN="$HOME/.local/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
-export CFLAGS="-Wall -Wextra -Werror -O0 -g -fsanitize=address -fno-omit-frame-pointer -finstrument-fucntions"
+# export CFLAGS="-Wall -Wextra -Werror -O0 -g -fsanitize=address -fno-omit-frame-pointer -finstrument-functions"
 export ERL_AFLAGS="-kernel shell_history enabled"
-export MODULAR_HOME="/Users/charlie/.modular"
+export ROS_DOMAIN_ID=1
 
 # ---- PATH ----
-export PATH="$PATH:$MODULAR_HOME/pkg/packages.modular.com_mojo/bin"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cabal/bin"
 export PATH="$PATH:$HOME/.ghcup/bin"
-
-
+export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/home/charlie/zig"
+export PATH="$PATH:/home/charlie/github.com/zigtools/zls/zig-out/bin"
+export MODULAR_HOME="/home/charlie/.modular"
+export PATH="$PATH:$MODULAR_HOME/pkg/packages.modular.com_mojo/bin"
 
 # ---- history ----
 export HISTFILE=~/.histfile
@@ -47,8 +50,10 @@ export HISTSIZE=25000
 export SAVEHIST=25000
 export HISTCONTROL=ignorespace
 
+
 # ---- aliases ----
 alias v=nvim
+alias python='/usr/bin/python3.11'
 
 alias ip='ip -c'
 alias free='free -h'
@@ -61,7 +66,7 @@ alias c='clear'
 alias dot="cd $DOTFILES"
 alias scripts="cd $SCRIPTS"
 alias repos="cd $GHREPOS"
-alias lab="cd $GHREPOS"
+alias lab="cd $LAB"
 
 # ls
 alias ls='ls --color=auto'
@@ -123,3 +128,9 @@ eval "$(zoxide init bash)"
 
 # ---- Starship ----
 eval "$(starship init bash)"
+
+# ---- ROS setup ----
+source /opt/ros/iron/setup.bash
+
+# ---- ASDF (Version Manager for Elixir) ----
+. "$HOME/.asdf/asdf.sh"
