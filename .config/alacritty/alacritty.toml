@@ -4,22 +4,19 @@ import = [
   "/home/charlie/.config/alacritty/themes/themes/tokyonight_night.toml",
 ]
 
-# [env]
-# TERM = "xterm-256color"
-
 [font]
-size = 16
+size = 18
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "Iosevka"
 style = "Regular"
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+family = "Iosevka"
 style = "Bold"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "Iosevka"
 style = "Italic"
 
 [window]
