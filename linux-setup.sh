@@ -1,9 +1,9 @@
-# Install Iosevka Font
+# Install Iosevka Nerd Fonts
 cd ~/Downloads
-wget https://github.com/be5invis/Iosevka/releases/download/v29.2.1/PkgTTC-Iosevka-29.2.1.zip
-unzip PkgTTC-Iosevka-29.2.1.zip -d Iosevka
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Iosevka.zip
+unzip Iosevka.zip -d Iosevka
 mkdir -p ~/.local/share/fonts
-cp Iosevka/*.ttc ~/.local/share/fonts
+cp Iosevka/*.ttf ~/.local/share/fonts
 fc-cache
 
 # Git config

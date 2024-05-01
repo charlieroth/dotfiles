@@ -35,6 +35,7 @@ export SECOND_BRAIN="$DOCUMENTS/Alexandria"
 export GOBIN="$HOME/.local/bin"
 export GOPRIVATE="$GHREPOS/$GITUSER/*"
 # Elixir/Erlang development
+export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
 export ERL_AFLAGS="-kernel shell_history enabled"
 # ROS development
 export ROS_DOMAIN_ID=1
@@ -137,3 +138,8 @@ eval "$(starship init bash)"
 
 # ---- ASDF (Version Manager for Elixir) ----
 . "$HOME/.asdf/asdf.sh"
+
+. "$HOME/.asdf/completions/asdf.bash"
+
+# ---- Alacritty Bash Completions ----
+source /home/charlie/github.com/alacritty/alacritty/extra/completions/alacritty.bash
