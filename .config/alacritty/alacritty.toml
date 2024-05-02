@@ -6,18 +6,18 @@ import=["/Users/charlie/.config/alacritty/themes/themes/catppuccin-mocha.toml"]
 TERM = "xterm-256color"
 
 [font]
-size = 25
+size = 23
 
 [font.normal]
-family = "UbuntuMono Nerd Font"
+family = "ZedMono Nerd Font Mono"
 style = "Regular"
 
 [font.bold]
-family = "UbuntuMono Nerd Font"
+family = "ZedMono Nerd Font Mono"
 style = "Bold"
 
 [font.italic]
-family = "UbuntuMono Nerd Font"
+family = "ZedMono Nerd Font Mono"
 style = "Italic"
 
 [window]
