@@ -29,7 +29,7 @@ export GOPRIVATE="$GHREPOS/$GITUSER/*"
 export GOBIN="$HOME/.local/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
-export CFLAGS="-Wall -Wextra -Werror -O0 -g -fsanitize=address -fno-omit-frame-pointer -finstrument-fucntions"
+# export CFLAGS="-Wall -Wextra -Werror -O0 -g -fsanitize=address -fno-omit-frame-pointer -finstrument-fucntions"
 export MODULAR_HOME="$HOME/.modular"
 export MOJO_PATH="$MODULAR_HOME/pkg/packages.modular.com_mojo"
 # Tell Apple to hush
