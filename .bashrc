@@ -30,14 +30,28 @@ export GOBIN="$HOME/.local/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
 # export CFLAGS="-Wall -Wextra -Werror -O0 -g -fsanitize=address -fno-omit-frame-pointer -finstrument-fucntions"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 export MODULAR_HOME="$HOME/.modular"
 export MOJO_PATH="$MODULAR_HOME/pkg/packages.modular.com_mojo"
 # Tell Apple to hush
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+#To use the bundled libc++ please add the following LDFLAGS:
+#  LDFLAGS="-L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++"
+#
+#llvm is keg-only, which means it was not symlinked into /opt/homebrew,
+#because macOS already provides this software and installing another version in
+#parallel can cause all kinds of trouble.
+#
+#If you need to have llvm first in your PATH, run:
+#  echo 'export PATH="/opt/homebrew/opt/llvm/bin:$PATH"' >> /Users/charlie/.bash_profile
+#
+#For compilers to find llvm you may need to set:
+#  export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+#  export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 # ---- PATH ----
 export PATH="$MOJO_PATH/bin:$PATH"
-
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # ---- history ----
 export HISTFILE=~/.histfile
