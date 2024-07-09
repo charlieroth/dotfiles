@@ -29,7 +29,6 @@ exec brew install coreutils \
   bash \
   nmap \
   fd \
-  bash \
   git \
   tmux \
   go \
