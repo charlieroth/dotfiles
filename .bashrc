@@ -29,7 +29,7 @@ export GOPRIVATE="$GHREPOS/$GITUSER/*"
 export GOBIN="$HOME/.local/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
-export CFLAGS="-Wall -Wextra -Werror -O0 -g -fsanitize=address -fno-omit-frame-pointer -finstrument-fucntions"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 export MODULAR_HOME="$HOME/.modular"
 export MOJO_PATH="$MODULAR_HOME/pkg/packages.modular.com_mojo"
 # Tell Apple to hush
@@ -37,13 +37,11 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # ---- PATH ----
 export PATH="$MOJO_PATH/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 
 # ---- history ----
-export HISTFILE=~/.histfile
-export HISTSIZE=25000
-export SAVEHIST=25000
-export HISTCONTROL=ignorespace
+export SHELL_SESSION_HISTORY=0
 
 # ---- aliases ----
 alias v=nvim
@@ -124,3 +122,8 @@ _source_if "$HOME/.bash_work"
 
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
+
+# PyEnv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
