@@ -72,8 +72,7 @@ alias last='find . -type -f -not -path "*/\.*" -exec ls -lrt {} +'
 
 # second brain & zettelkasten
 alias sb="cd \$SECOND_BRAIN"
-alias in="cd \$SECOND_BRAIN/0-inbox/"
-alias ztl="cd \$SECOND_BRAIN/00-zettelkasten/"
+alias in="cd \$SECOND_BRAIN/Inbox/"
 
 # git
 alias gs="git status"

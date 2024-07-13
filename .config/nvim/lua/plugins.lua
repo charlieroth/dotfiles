@@ -1,6 +1,5 @@
 return {
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-	"urbit/hoon.vim",
 	{
 		"stevearc/oil.nvim",
 		opts = {},
@@ -185,7 +184,6 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 			local servers = {
-				hoon_ls = {},
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -195,14 +193,17 @@ return {
 						},
 					},
 				},
+				pyright = {
+					filtypes = { "python" },
+				},
 			}
 
 			require("mason").setup()
 
 			require("mason-tool-installer").setup({
 				ensure_installed = {
-					"hoon_ls",
 					"stylua",
+					"pyright",
 					"lua_ls",
 				},
 			})
