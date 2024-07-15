@@ -5,6 +5,9 @@ discharging_symbol = "⇣ "
 unknown_symbol = "❓ "
 empty_symbol = "❗ "
 
+[swift]
+disabled = true
+
 [erlang]
 symbol = "ⓔ "
 
