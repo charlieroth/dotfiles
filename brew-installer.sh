@@ -40,4 +40,6 @@ exec brew install coreutils \
   neovim \
   zoxide \
   fzf \
-  starship
+  starship \
+  asciiquarium \
+  pyenv

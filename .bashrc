@@ -1,17 +1,30 @@
-# If not running interactively, don't do anything
+#
+# ~/.bashrc
+#
+
+# if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# ---- local utility functions ----
-_have() { type "$1" &>/dev/null; }
+# set to vim editing mode
+set -o vi
 
-_source_if() { [[ -r "$1" ]] && source "$1"; }
+# keybinds
+bind -x '"\C-l":clear'
 
-# ---- environment variables ----
+# ---- Environment ----
+# text editing
+export EDITOR=nvim
+export VISUAL=nvim
+export EDITOR_PREFIX=nvim
+export HRULEWIDTH=73
+# shell
 export SHELL=/bin/bash
+export SHELL_SESSION_HISTORY=0
 export LANG=en_US.UTF-8
+# user
 export USER="${USER:-$(whoami)}"
+# directories
 export GITUSER="charlieroth"
-export PLATFORM="mac"
 export REPOS="$HOME/github.com"
 export GHREPOS="$HOME/github.com/$GITUSER"
 export LAB="$GHREPOS/lab"
@@ -21,31 +34,29 @@ export DOCUMENTS="$HOME/Documents"
 export DOWNLOADS="$HOME/Downloads"
 export SCRIPTS="$DOTFILES/scripts"
 export SECOND_BRAIN="$DOCUMENTS/Alexandria"
-export HRULEWIDTH=73
-export EDITOR=nvim
-export VISUAL=nvim
-export EDITOR_PREFIX=nvim
+# go
 export GOPRIVATE="$GHREPOS/$GITUSER/*"
 export GOBIN="$HOME/.local/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+# mojo
 export MODULAR_HOME="$HOME/.modular"
 export MOJO_PATH="$MODULAR_HOME/pkg/packages.modular.com_mojo"
-# Tell Apple to hush
+# node
+export NVM_DIR="$HOME/.nvm"
+# compilation flags
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+# other
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # ---- PATH ----
 export PATH="$MOJO_PATH/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
-
-# ---- history ----
-export SHELL_SESSION_HISTORY=0
-
-# ---- aliases ----
+# ---- Aliases ----
 alias v=nvim
-
+alias t='tmux'
+alias tks='tmux kill-server'
 alias ip='ip -c'
 alias free='free -h'
 alias tree='tree -a'
@@ -54,75 +65,27 @@ alias diff='diff --color'
 alias c='clear'
 alias coin="clip '(yes|no)'"
 alias iam=live
-
-# cd
 alias dot="cd $DOTFILES"
 alias scripts="cd $SCRIPTS"
 alias repos="cd $GHREPOS"
 alias lab="cd $GHREPOS"
-
-# ls
 alias ls='ls --color=auto'
 alias ll='ls -la'
 alias la='ls -lathr'
-
-# find all files recursively and sorts by last modifcation, ignore
-# hidden files
-alias last='find . -type -f -not -path "*/\.*" -exec ls -lrt {} +'
-
-# second brain & zettelkasten
+alias lastmod='find . -type f -not -path "*/\.*" -exec ls -lrt {} +'
 alias sb="cd \$SECOND_BRAIN"
-alias in="cd \$SECOND_BRAIN/Inbox/"
-
-# git
+alias in="cd \$SECOND_BRAIN/00\ Inbox/"
+alias gp="git pull"
 alias gs="git status"
+alias lg='lazygit'
+alias fishies=asciiquarium
+alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+alias vf='v $(fp)'
 
-
-# ---- functions ----
-# clone() {
-# 	local repo="$1" user
-# 	local repo="${repo#https://github.com/}"
-# 	local repo="${repo#git@github.com:}"
-# 	if [[ $repo =~ / ]]; then
-# 		user="${repo%%/*}"
-# 	else
-# 		user="$GITUSER"
-# 		[[ -z "$user" ]] && user="$USER"
-# 	fi
-# 	local name="${repo##*/}"
-# 	local userd="$REPOS/$user"
-# 	local path="$userd/$name"
-# 	[[ -d "$path" ]] && cd "$path" && return
-# 	mkdir -p "$userd"
-# 	cd "$userd"
-# 	echo gh repo clone "$user/$name" -- --recurse-submodule
-# 	gh repo clone "$user/$name" -- --recurse-submodule
-# 	cd "$name"
-# } && export -f clone
-
-# Node version manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-# ---- source external dependencies / completion ----
+# ---- Source external dependencies / completion ----
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-
-_have gh && . <(gh completion -s bash)
-_have pandoc && . <(pandoc --bash-completion)
-
-# ---- personalize configuration ----
-_source_if "$HOME/.bash_personal"
-_source_if "$HOME/.bash_private"
-_source_if "$HOME/.bash_work"
-
 . "$HOME/.cargo/env"
-
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
-
-# PyEnv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"

@@ -1,8 +1,12 @@
 # Only run on macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  # needed for brew
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
+# Only run these on Ubuntu and Fedora
+# if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -Eq "ubuntu|fedora")$? == 0 ]]; then
+#   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# fi
 
 if [ -r ~/.bashrc ]; then
   source ~/.bashrc
@@ -10,22 +14,7 @@ fi
 
 export XDG_CONFIG_HOME="$HOME"/.config
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-#__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-#if [ $? -eq 0 ]; then
-#    eval "$__conda_setup"
-#else
-#    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-#        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-#    else
-#        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
-#    fi
-#fi
-#unset __conda_setup
-# <<< conda initialize <<<
-
-# PyEnv
+# initialize pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"

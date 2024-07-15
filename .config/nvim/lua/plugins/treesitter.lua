@@ -11,6 +11,8 @@ return {
         -- "markdown",
         -- "markdown_inline",
         "python",
+        "ninja",
+        "rst",
         "query",
         "regex",
         "vim",
