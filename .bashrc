@@ -18,7 +18,7 @@ export VISUAL=nvim
 export EDITOR_PREFIX=nvim
 export HRULEWIDTH=73
 # shell
-export SHELL=/bin/bash
+export SHELL=/opt/homebrew/bin/bash
 export SHELL_SESSION_HISTORY=0
 export LANG=en_US.UTF-8
 # user
@@ -82,6 +82,14 @@ alias fishies=asciiquarium
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias vf='v $(fp)'
 
+source <(kubectl completion bash)
+complete -o default -F __start_kubectl k
+alias k='kubectl'
+alias kgp='kubectl get pods'
+alias kn='kubens'
+alias kcr='kubectl config use-context rancher-desktop'
+
+
 # ---- Source external dependencies / completion ----
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
@@ -89,3 +97,7 @@ alias vf='v $(fp)'
 . "$HOME/.cargo/env"
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/charlie/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
