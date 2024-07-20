@@ -9,13 +9,14 @@ set nocompatible
 " automatically indent new lines
 set autoindent " (alpine)
 
-set noflash " (alpine-ish only)
+" (apline-ish only)
+set noflash
 
-" replace tabs with spaces automatically
-set expandtab " (alpine)
+" replace tabs with spaces automatically (alpine)
+set expandtab
 
-" number of spaces to replace a tab with when expandtab
-set tabstop=2 " (alpine)
+" number of spaces to replace a tab with when expandtab (alpine)
+set tabstop=2
 
 " use case when searching
 set noignorecase
@@ -158,6 +159,27 @@ set background=dark
 " make gutter less annoying
 hi SignColumn ctermbg=NONE
 
+" base default color changes (gruvbox dark friendly)
+hi StatusLine ctermfg=black ctermbg=NONE
+hi StatusLineNC ctermfg=black ctermbg=NONE
+hi Normal ctermbg=NONE
+hi Special ctermfg=cyan
+hi LineNr ctermfg=black ctermbg=NONE
+hi SpecialKey ctermfg=black ctermbg=NONE
+hi ModeMsg ctermfg=black cterm=NONE ctermbg=NONE
+hi MoreMsg ctermfg=black ctermbg=NONE
+hi NonText ctermfg=black ctermbg=NONE
+hi vimGlobal ctermfg=black ctermbg=NONE
+hi ErrorMsg ctermbg=234 ctermfg=darkred cterm=NONE
+hi Error ctermbg=234 ctermfg=darkred cterm=NONE
+hi SpellBad ctermbg=234 ctermfg=darkred cterm=NONE
+hi SpellRare ctermbg=234 ctermfg=darkred cterm=NONE
+hi Search ctermbg=236 ctermfg=darkred
+hi vimTodo ctermbg=236 ctermfg=darkred
+hi Todo ctermbg=236 ctermfg=darkred
+hi IncSearch ctermbg=236 cterm=NONE ctermfg=darkred
+hi MatchParen ctermbg=236 ctermfg=darkred
+
 " Edit/Reload vimrc configuration file
 nnoremap confe :e $HOME/.vimrc<CR>
 nnoremap confr :source $HOME/.vimrc<CR>
@@ -176,3 +198,5 @@ nnoremap <C-L> :nohl<CR><C-L>
 " start at last place you were editing
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 "au BufWritePost ~/.vimrc so ~/.vimrc
+
+nmap <leader>2 :set paste<CR>i
