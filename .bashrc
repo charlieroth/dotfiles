@@ -82,13 +82,15 @@ alias fishies=asciiquarium
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias vf='v $(fp)'
 
+# ---- Work Aliases ----
+alias sy="source .yoshi/bin/activate"
+
 source <(kubectl completion bash)
 complete -o default -F __start_kubectl k
 alias k='kubectl'
 alias kgp='kubectl get pods'
 alias kn='kubens'
 alias kcr='kubectl config use-context rancher-desktop'
-
 
 # ---- Source external dependencies / completion ----
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
