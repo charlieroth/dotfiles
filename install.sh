@@ -41,5 +41,4 @@ exec brew install coreutils \
   zoxide \
   fzf \
   starship \
-  asciiquarium \
   pyenv

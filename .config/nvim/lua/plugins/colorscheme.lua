@@ -1,12 +1,9 @@
 return {
-  -- add gruvbox
-  { "wittyjudge/gruvbox-material.nvim" },
-
-  -- Configure LazyVim to load gruvbox
+  { "folke/tokyonight.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox-material",
+      colorscheme = "tokyonight",
     },
   },
 }
