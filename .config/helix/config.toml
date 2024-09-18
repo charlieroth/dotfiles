@@ -1,0 +1,17 @@
+theme = "tokyonight"
+
+[editor]
+line-number = "relative"
+mouse = false
+auto-completion = true
+auto-format = true
+completion-timeout = 5
+true-color = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false

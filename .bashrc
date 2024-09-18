@@ -48,6 +48,9 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # ---- PATH ----
 export PATH="$MOJO_PATH/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/Users/charlie/.local/bin:$PATH"
+export PATH="/Users/charlie/github.com/zigtools/zls/zig-out/bin:$PATH"
+export PATH="/Users/charlie/github.com/kristoff-it/ziggy/zig-out/bin:$PATH"
 
 # ---- Aliases ----
 alias ..='cd ..'

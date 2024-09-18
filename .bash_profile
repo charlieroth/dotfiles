@@ -30,6 +30,9 @@ eval "$(zoxide init bash)"
 # ---- Starship (PROMPT) ----
 eval "$(starship init bash)"
 
+# ---- Direnv (Environment Management) ----
+eval "$(direnv hook bash)"
+
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/charlie/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

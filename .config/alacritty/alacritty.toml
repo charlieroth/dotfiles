@@ -8,7 +8,5 @@ size = 20
 
 [window]
 blur = true
-decorations = "None"
-padding.x = 8
-padding.y = 8
+decorations = "Full"
 opacity = 1

@@ -7,6 +7,7 @@
   cim = commit -m
   st = status
   br = branch
+  sc = switch -c
 
 [push]
   default = current

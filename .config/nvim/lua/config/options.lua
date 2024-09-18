@@ -5,8 +5,8 @@
 local opt = vim.opt
 
 opt.ignorecase = true
-opt.number = false
-opt.relativenumber = false
+opt.number = true
+opt.relativenumber = true
 opt.scrolloff = 8
 
 vim.g.mkdp_browser = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
