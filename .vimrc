@@ -1,4 +1,5 @@
-if has("eval")                               " vim-tiny lacks 'eval'
+" vim-tiny lacks 'eval'
+if has("eval")
   let skip_defaults_vim = 1
 endif
 
@@ -8,8 +9,6 @@ set nocompatible
 
 " automatically indent new lines
 set autoindent " (alpine)
-
-set noflash " (alpine-ish only)
 
 " replace tabs with spaces automatically
 set expandtab " (alpine)
@@ -24,7 +23,8 @@ set noignorecase
 set autowrite
 
 " deactivate line numbers
-set nonumber
+set nu
+set rnu
 
 " turn col and row position on in bottom right
 set ruler " see ruf for formatting
@@ -66,9 +66,6 @@ match IncSearch '\s\+$'
 " enough for line numbers + gutter within 80 standard
 set textwidth=72
 "set colorcolumn=73
-
-" disable relative line numbers, remove no to sample it
-set norelativenumber
 
 " makes ~ effectively invisible
 "highlight NonText guifg=bg
