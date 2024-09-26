@@ -29,7 +29,7 @@ export DESKTOP="$HOME/Desktop"
 export DOCUMENTS="$HOME/Documents"
 export DOWNLOADS="$HOME/Downloads"
 export SCRIPTS="$DOTFILES/scripts"
-export SECOND_BRAIN="$DOCUMENTS/Alexandria"
+export SECOND_BRAIN="$DOCUMENTS/Digital\ Garden/"
 # go
 export GOPRIVATE="$GHREPOS/$GITUSER/*"
 export GOBIN="$HOME/.local/bin"
@@ -74,12 +74,11 @@ alias gp="git pull"
 alias gs="git status"
 alias lg='lazygit'
 
-alias dot="cd \$DOTFILES"
-alias scripts="cd \$SCRIPTS"
-alias repos="cd \$GHREPOS"
-alias lab="cd \$LAB"
-alias sb="cd \$SECOND_BRAIN"
-alias in="cd \$SECOND_BRAIN/00\ Inbox/"
+alias dot="cd $DOTFILES"
+alias scripts="cd $SCRIPTS"
+alias repos="cd $GHREPOS"
+alias lab="cd $LAB"
+alias sb="cd $SECOND_BRAIN"
 
 # ---- Work Aliases ----
 alias sy="source .yoshi/bin/activate"
