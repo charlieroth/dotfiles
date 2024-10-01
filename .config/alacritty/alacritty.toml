@@ -1,0 +1,12 @@
+import=["/Users/charlie/.config/alacritty/themes/themes/tokyo_night.toml"]
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font Mono", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font Mono", style = "Italic" }
+size = 20
+
+[window]
+blur = true
+decorations = "Full"
+opacity = 1
