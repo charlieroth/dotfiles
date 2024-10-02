@@ -9,9 +9,9 @@ bind -x '"\C-l":clear'
 
 # ---- Environment ----
 # text editing
-export EDITOR=vim
-export VISUAL=vim
-export EDITOR_PREFIX=vim
+export EDITOR=nvim
+export VISUAL=nvim
+export EDITOR_PREFIX=nvim
 export HRULEWIDTH=80
 # shell
 export SHELL=/opt/homebrew/bin/bash
@@ -66,7 +66,7 @@ alias c='clear'
 alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
 alias diff='diff --color'
 
-alias v=vim
+alias v=nvim
 alias t='tmux'
 alias tks='tmux kill-server'
 
