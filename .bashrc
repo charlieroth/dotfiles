@@ -42,6 +42,8 @@ export MOJO_PATH="$MODULAR_HOME/pkg/packages.modular.com_mojo"
 export NVM_DIR="$HOME/.nvm"
 # compilation flags
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+# Erlang
+export ERL_AFLAGS="-kernel shell_history enabled"
 # other
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
@@ -70,9 +72,15 @@ alias v=nvim
 alias t='tmux'
 alias tks='tmux kill-server'
 
+alias ga="git add"
+alias gcm="git commit -m"
+alias gc="git commit"
+alias gl="git lg"
 alias gp="git pull"
 alias gs="git status"
+alias txn="tmuxinator"
 alias lg='lazygit'
+alias ld='lazydocker'
 
 alias dot="cd $DOTFILES"
 alias scripts="cd $SCRIPTS"
