@@ -22,7 +22,7 @@ export USER="${USER:-$(whoami)}"
 # directories
 export GITUSER="charlieroth"
 export REPOS="$HOME/github.com"
-export GHREPOS="$HOME/github.com/$GITUSER"
+export GHREPOS="$REPOS/$GITUSER"
 export LAB="$GHREPOS/lab"
 export DOTFILES="$HOME/dotfiles"
 export DESKTOP="$HOME/Desktop"
@@ -31,7 +31,7 @@ export DOWNLOADS="$HOME/Downloads"
 export SCRIPTS="$DOTFILES/scripts"
 export SECOND_BRAIN="$DOCUMENTS/Digital\ Garden/"
 # go
-export GOPRIVATE="$GHREPOS/$GITUSER/*"
+# export GOPRIVATE="$GHREPOS/$GITUSER/*"
 export GOBIN="$HOME/.local/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
@@ -51,8 +51,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH="$MOJO_PATH/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/Users/charlie/.local/bin:$PATH"
-export PATH="/Users/charlie/github.com/zigtools/zls/zig-out/bin:$PATH"
-export PATH="/Users/charlie/github.com/kristoff-it/ziggy/zig-out/bin:$PATH"
+export PATH="$REPOS/zigtools/zls/zig-out/bin:$PATH"
 
 # ---- Aliases ----
 alias ..='cd ..'

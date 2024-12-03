@@ -30,7 +30,7 @@
 
 [core]
   excludesfile = ~/.gitignore_global
-  editor = vim
+  editor = nvim
 
 [log]
   date = relative
@@ -43,5 +43,9 @@
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
+
 [gitbutler]
 	aiOpenAIKeyOption = butlerAPI
+
+[url "ssh://git@github.com/"]
+        insteadOf = https://github.com/
