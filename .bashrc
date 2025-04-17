@@ -1,5 +1,29 @@
-# if not running interactively, don't do anything
-[[ $- != *i* ]] && return
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+[[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
+
+export XDG_CONFIG_HOME="$HOME"/.config
+
+# ---- Cargo (Rust) ----
+. "$HOME/.cargo/env"
+
+# ---- Zoxide (Better cd) ----
+eval "$(zoxide init bash)"
+
+# ---- Starship (PROMPT) ----
+eval "$(starship init bash)"
+
+# ---- Direnv (Environment Management) ----
+eval "$(direnv hook bash)"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/charlie/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# source <(kubectl completion bash)
+# complete -o default -F __start_kubectl k
 
 # set to vim editing mode
 set -o vi
@@ -14,7 +38,7 @@ export VISUAL=nvim
 export EDITOR_PREFIX=nvim
 export HRULEWIDTH=80
 # shell
-export SHELL=/opt/homebrew/bin/bash
+# export SHELL=/opt/homebrew/bin/bash
 export SHELL_SESSION_HISTORY=0
 export LANG=en_US.UTF-8
 # user
@@ -32,7 +56,7 @@ export SCRIPTS="$DOTFILES/scripts"
 export SECOND_BRAIN="$DOCUMENTS/Digital\ Garden/"
 # go
 # export GOPRIVATE="$GHREPOS/$GITUSER/*"
-export GOBIN="$HOME/.local/bin"
+export GOBIN="$HOME/go/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
 # mojo
@@ -48,6 +72,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # ---- PATH ----
+export PATH="$GOBIN:$PATH"
 export PATH="$MOJO_PATH/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/Users/charlie/.local/bin:$PATH"
@@ -95,3 +120,16 @@ alias k='kubectl'
 alias kgp='kubectl get pods'
 alias kn='kubens'
 alias kcr='kubectl config use-context rancher-desktop'
+
+# ---- Deno ----
+. "/Users/charlie/.deno/env"
+
+source /Users/charlie/.config/op/plugins.sh
+
+# pnpm
+export PNPM_HOME="/Users/charlie/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
