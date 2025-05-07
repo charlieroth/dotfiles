@@ -20,9 +20,9 @@ bind -x '"\C-l":clear'
 
 # ---- Environment ----
 # text editing
-export EDITOR=vim
-export VISUAL=vim
-export EDITOR_PREFIX=vim
+export EDITOR=nvim
+export VISUAL=nvim
+export EDITOR_PREFIX=nvim
 export HRULEWIDTH=80
 # shell
 export SHELL_SESSION_HISTORY=0
@@ -49,6 +49,7 @@ export SSH_AUTH_SOCK=~/.1password/agent.sock
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # ---- PATH ----
+export PATH=$PATH:/usr/local/go/bin
 export PATH="$GOBIN:$PATH"
 export PATH="$MOJO_PATH/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -72,7 +73,7 @@ alias c='clear'
 alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
 alias diff='diff --color'
 
-alias v=vim
+alias v=nvim
 alias t='tmux'
 alias tks='tmux kill-server'
 
