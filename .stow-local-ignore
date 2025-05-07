@@ -6,7 +6,11 @@ docs
 
 install
 
+apt-install
+
 theme
+
+fastfetch.jsonc
 
 \.gitignore
 
