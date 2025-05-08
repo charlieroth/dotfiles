@@ -1,6 +1,6 @@
 [alias]
   lg = log --pretty=format:'%h - %an [%ar] %s'
-  l = log --oneline --decorate --graph --all
+  l = log --oneline --decorate --graph -n 25 --all
   co = checkout
   cob = checkout -b
   ci = commit

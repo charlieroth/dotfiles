@@ -122,9 +122,8 @@ alias kn='kubens'
 alias kcr='kubectl config use-context rancher-desktop'
 
 # ---- Deno ----
-. "/Users/charlie/.deno/env"
-
-source /Users/charlie/.config/op/plugins.sh
+# . "/Users/charlie/.deno/env"
+# source /Users/charlie/.config/op/plugins.sh
 
 # pnpm
 export PNPM_HOME="/Users/charlie/Library/pnpm"
