@@ -1,16 +1,5 @@
 export XDG_CONFIG_HOME="$HOME"/.config
 
-# ---- Cargo (Rust) ----
-. "$HOME/.cargo/env"
-
-# ---- Zoxide (Better cd) ----
-eval "$(zoxide init bash)"
-
-# ---- Starship (PROMPT) ----
-eval "$(starship init bash)"
-
-# ---- Direnv (Environment Management) ----
-eval "$(direnv hook bash)"
 
 # set to vim editing mode
 set -o vi
@@ -31,7 +20,7 @@ export LANG=en_US.UTF-8
 export USER="${USER:-$(whoami)}"
 # directories
 export GITUSER="charlieroth"
-export REPOS="$HOME/github.com"
+export REPOS="$HOME/git"
 export GHREPOS="$REPOS/$GITUSER"
 export LAB="$GHREPOS/lab"
 export DOTFILES="$HOME/dotfiles"
@@ -74,24 +63,26 @@ alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
 alias diff='diff --color'
 
 alias v=nvim
-alias t='tmux'
-alias tks='tmux kill-server'
 
+# git
 alias ga="git add"
 alias gcm="git commit -m"
 alias gc="git commit"
 alias gl="git lg"
 alias gp="git pull"
 alias gs="git status"
-alias txn="tmuxinator"
+
+# tailscale
+alias tsup="sudo tailscale up --accept-routes"
+alias tsdn="sudo tailscale down"
+
 alias lg='lazygit'
 alias ld='lazydocker'
+alias nd='nix develop'
 
 alias dot="cd $DOTFILES"
 alias scripts="cd $SCRIPTS"
 alias repos="cd $GHREPOS"
-alias lab="cd $LAB"
-alias sb="cd $SECOND_BRAIN"
 
 # ---- Kubernetes ----
 alias k='kubectl'
@@ -99,15 +90,28 @@ alias kgp='kubectl get pods'
 alias kn='kubens'
 alias kcr='kubectl config use-context rancher-desktop'
 
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source .bashrc_work
+
+# ---- Cargo (Rust) ----
+. "$HOME/.cargo/env"
+
 # ---- Deno ----
-# . "/Users/charlie/.deno/env"
+. "/home/charlie/.deno/env"
 
-# source /Users/charlie/.config/op/plugins.sh
+# ---- Zoxide (Better cd) ----
+eval "$(zoxide init bash)"
 
-# pnpm
-# export PNPM_HOME="/Users/charlie/Library/pnpm"
-# case ":$PATH:" in
-#   *":$PNPM_HOME:"*) ;;
-#   *) export PATH="$PNPM_HOME:$PATH" ;;
-# esac
-# pnpm end
+# ---- Starship (PROMPT) ----
+eval "$(starship init bash)"
+
+# ---- Direnv (Environment Management) ----
+eval "$(direnv hook bash)"
+
+# ---- UV ----
+eval "$(uv generate-shell-completion bash)"
+
+source /home/charlie/.local/share/zeus/rc/zeus.bash
