@@ -1,0 +1,4 @@
+theme = catppuccin-mocha
+font-size = 14
+maximize = true
+background-opacity = 0.8

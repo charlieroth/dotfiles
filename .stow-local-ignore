@@ -6,7 +6,9 @@ docs
 
 install
 
-apt-install
+apt-install.sh
+
+pacman-install.sh
 
 theme
 
