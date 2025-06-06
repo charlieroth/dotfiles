@@ -44,8 +44,5 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
 
-[gitbutler]
-	aiOpenAIKeyOption = butlerAPI
-
 [url "ssh://git@github.com/"]
-        insteadOf = https://github.com/
+    insteadOf = https://github.com/
