@@ -6,17 +6,6 @@ fi
 
 export XDG_CONFIG_HOME="$HOME"/.config
 
-# ---- Cargo (Rust) ----
-. "$HOME/.cargo/env"
-
-# ---- Zoxide (Better cd) ----
-eval "$(zoxide init bash)"
-
-# ---- Starship (PROMPT) ----
-eval "$(starship init bash)"
-
-# ---- Direnv (Environment Management) ----
-eval "$(direnv hook bash)"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/charlie/.rd/bin:$PATH"
@@ -101,7 +90,8 @@ alias gcm="git commit -m"
 alias gc="git commit"
 alias gl="git lg"
 alias gp="git pull"
-alias gs="git status"
+alias gpf="git push -f"
+alias gst="git status"
 alias txn="tmuxinator"
 alias lg='lazygit'
 alias ld='lazydocker'
@@ -115,12 +105,6 @@ alias sb="cd $SECOND_BRAIN"
 # ---- Work Aliases ----
 alias sy="source .yoshi/bin/activate"
 
-# ---- Kubernetes ----
-alias k='kubectl'
-alias kgp='kubectl get pods'
-alias kn='kubens'
-alias kcr='kubectl config use-context rancher-desktop'
-
 # ---- Deno ----
 # . "/Users/charlie/.deno/env"
 # source /Users/charlie/.config/op/plugins.sh
@@ -132,3 +116,21 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+source ~/.bashrc_private
+
+# ---- Cargo (Rust) ----
+. "$HOME/.cargo/env"
+
+# ---- Starship (PROMPT) ----
+eval "$(starship init bash)"
+
+# ---- Direnv (Environment Management) ----
+eval "$(direnv hook bash)"
+
+# ---- Zoxide (Better cd) ----
+eval "$(zoxide init bash)"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
