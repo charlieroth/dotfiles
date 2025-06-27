@@ -72,9 +72,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-alias ls='eza -lh --group-directories-first --icons'
-alias lsa='ls -a'
-alias lt='eza --tree --level=2 --long --icons --git'
+# alias ls='eza -lh --group-directories-first --icons'
+# alias lsa='ls -a'
+# alias lt='eza --tree --level=2 --long --icons --git'
 
 alias c='clear'
 
