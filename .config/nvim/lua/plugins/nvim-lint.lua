@@ -1,68 +1,95 @@
 return {
+  {
     "mfussenegger/nvim-lint",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-        local lint = require("lint")
+    opts = {
+      events = { "BufWritePost", "BufReadPost", "InsertLeave" },
+      linters_by_ft = {
+        -- Go
+        go = { "golangcilint" },
 
-        -- Configure custom linters using Mason-managed tools
-        local mason_bin_dir = vim.fn.stdpath("data") .. "/mason/bin"
+        -- JavaScript/TypeScript
+        javascript = { "eslint_d" },
+        typescript = { "eslint_d" },
+        javascriptreact = { "eslint_d" },
+        typescriptreact = { "eslint_d" },
 
-        -- Customize golangcilint to ignore exit codes (golangci-lint exits with code 1-3 when issues are found)
-        local golangcilint = require('lint').linters.golangcilint
-        golangcilint.ignore_exitcode = true
+        -- Lua
+        lua = { "luacheck" },
 
-        -- Configure linters by filetype (using Mason-managed tools)
-        lint.linters_by_ft = {
-            -- Go
-            go = { "golangcilint" },
+        -- Shell
+        sh = { "shellcheck" },
+        bash = { "shellcheck" },
+        -- zsh = { "shellcheck" },
 
-            -- JavaScript/TypeScript
-            javascript = { "eslint_d" },
-            typescript = { "eslint_d" },
-            javascriptreact = { "eslint_d" },
-            typescriptreact = { "eslint_d" },
+        -- You can add more linters here as needed
+        -- python = { "flake8", "mypy" },
+        rust = { "clippy" },
+      },
+      linters = {}
+    },
+    config = function(_, opts)
+      local M = {}
+      local lint = require("lint")
+      for name, linter in pairs(opts.linters) do
+        if type(linter) == "table" and type(lint.linters[name]) == "table" then
+          lint.linters[name] = vim.tbl_deep_extend("force", lint.linters[name], linter)
+          if type(linter.prepend_args) == "table" then
+            lint.linters[name].args = lint.linters[name].args or {}
+            vim.list_extend(lint.linters[name].args, linter.prepend_args)
+          end
+        else
+          lint.linters[name] = linter
+        end
+      end
+      lint.linters_by_ft = opts.linters_by_ft
 
-            -- Lua
-            lua = { "luacheck" },
+      function M.debounce(ms, fn)
+        local timer = vim.uv.new_timer()
+        return function(...)
+          local argv = { ... }
+          timer:start(ms, 0, function()
+            timer:stop()
+            vim.schedule_wrap(fn)(unpack(argv))
+          end)
+        end
+      end
 
-            -- Shell
-            sh = { "shellcheck" },
-            bash = { "shellcheck" },
-            zsh = { "shellcheck" },
+      function M.lint()
+        -- Use nvim-lint's logic first:
+        -- * checks if linters exist for full filetype first
+        -- * otherwise will split filetype by "." and add all those linters
+        -- * this differs from conform.nvim which only uses the first filtype that has a formatter
+        local names = lint._resolve_linter_by_ft(vim.bo.filetype)
 
-            -- You can add more linters here as needed
-            -- python = { "flake8", "mypy" },
-            -- rust = { "clippy" },
-        }
+        -- Create a copy of the names table to avoid modifying the original.
+        names = vim.list_extend({}, names)
 
-        -- Auto-lint on save and text changes
-        local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+        -- Add fallback linters.
+        if #names == 0 then
+          vim.list_extend(names, lint.linters_by_ft["_"] or {})
+        end
 
-        vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-            group = lint_augroup,
-            callback = function()
-                -- Only lint if linters are available for this filetype
-                local linters = lint.linters_by_ft[vim.bo.filetype]
-                if linters and #linters > 0 then
-                    lint.try_lint()
-                end
-            end,
-        })
+        -- Add global linters
+        vim.list_extend(names, lint.linters_by_ft["*"] or {})
 
-        -- Manual linting command
-        vim.keymap.set("n", "<leader>ll", function()
-            lint.try_lint()
-            vim.notify("Linting...", vim.log.levels.INFO, { title = "nvim-lint" })
-        end, { desc = "Trigger linting for current file" })
+        -- Filter out linters that don't exist or don't match the condition
+        local ctx = { filename = vim.api.nvim_buf_get_name(0) }
+        ctx.dirname = vim.fn.fnamemodify(ctx.filename, ":h")
+        names = vim.tbl_filter(function(name)
+          local linter = lint.linters[name]
+          return linter and not (type(linter) == "table" and linter.condition and not linter.condition(ctx))
+        end, names)
 
-        -- Show linter status
-        vim.keymap.set("n", "<leader>li", function()
-            local linters = lint.linters_by_ft[vim.bo.filetype] or {}
-            if #linters == 0 then
-                print("No linters configured for filetype: " .. vim.bo.filetype)
-            else
-                print("Linters for " .. vim.bo.filetype .. ": " .. table.concat(linters, ", "))
-            end
-        end, { desc = "Show available linters for current filetype" })
-    end,
+        -- Run linters.
+        if #names > 0 then
+          lint.try_lint(names)
+        end
+      end
+
+      vim.api.nvim_create_autocmd(opts.events, {
+        group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
+        callback = M.debounce(100, M.lint)
+      })
+    end
+  },
 }

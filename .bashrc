@@ -66,6 +66,8 @@ export PATH="$MOJO_PATH/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/Users/charlie/.local/bin:$PATH"
 export PATH="$REPOS/zigtools/zls/zig-out/bin:$PATH"
+export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # ---- Aliases ----
 alias ..='cd ..'
@@ -117,7 +119,7 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-source ~/.bashrc_private
+# source ~/.bashrc_private
 
 # ---- Cargo (Rust) ----
 . "$HOME/.cargo/env"
@@ -130,6 +132,9 @@ eval "$(direnv hook bash)"
 
 # ---- Zoxide (Better cd) ----
 eval "$(zoxide init bash)"
+
+# --- asdf ---
+. <(asdf completion bash)
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
