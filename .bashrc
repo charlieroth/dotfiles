@@ -20,6 +20,14 @@ set -o vi
 # keybinds
 bind -x '"\C-l":clear'
 
+# ---- PROMPT ----
+# Technicolor dreams
+force_color_prompt=yes
+color_prompt=yes
+
+# Simple prompt with path in the window/pane title and caret for typing line
+PS1="(\u)> "
+
 # ---- Environment ----
 # text editing
 export EDITOR=nvim
@@ -122,7 +130,7 @@ source ~/.bashrc_private
 . "$HOME/.cargo/env"
 
 # ---- Starship (PROMPT) ----
-eval "$(starship init bash)"
+# eval "$(starship init bash)"
 
 # ---- Direnv (Environment Management) ----
 eval "$(direnv hook bash)"
