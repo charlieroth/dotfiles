@@ -65,7 +65,6 @@ export PATH="$GOBIN:$PATH"
 export PATH="$MOJO_PATH/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/Users/charlie/.local/bin:$PATH"
-export PATH="$REPOS/zigtools/zls/zig-out/bin:$PATH"
 
 # ---- Aliases ----
 alias ..='cd ..'
@@ -134,3 +133,10 @@ eval "$(zoxide init bash)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+alias claude="/Users/charlie/.claude/local/claude"
+
+# ZVM
+export ZVM_INSTALL="$HOME/.zvm/self"
+export PATH="$PATH:$HOME/.zvm/bin"
+export PATH="$PATH:$ZVM_INSTALL/"
