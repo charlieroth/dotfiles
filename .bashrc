@@ -21,11 +21,6 @@ set -o vi
 bind -x '"\C-l":clear'
 
 # ---- PROMPT ----
-# Technicolor dreams
-force_color_prompt=yes
-color_prompt=yes
-
-# Simple prompt with path in the window/pane title and caret for typing line
 PS1="(\u)> "
 
 # ---- Environment ----
@@ -61,6 +56,8 @@ export MODULAR_HOME="$HOME/.modular"
 export MOJO_PATH="$MODULAR_HOME/pkg/packages.modular.com_mojo"
 # node
 export NVM_DIR="$HOME/.nvm"
+# bun
+export BUN_INSTALL="$HOME/.bun"
 # compilation flags
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 # Erlang
@@ -73,6 +70,8 @@ export PATH="$GOBIN:$PATH"
 export PATH="$MOJO_PATH/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/Users/charlie/.local/bin:$PATH"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 # ---- Aliases ----
 alias ..='cd ..'
@@ -139,8 +138,6 @@ eval "$(direnv hook bash)"
 eval "$(zoxide init bash)"
 
 # bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 alias claude="/Users/charlie/.claude/local/claude"
 
