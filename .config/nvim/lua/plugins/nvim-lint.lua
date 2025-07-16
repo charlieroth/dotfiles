@@ -15,21 +15,17 @@ return {
         lint.linters_by_ft = {
             -- Go
             go = { "golangcilint" },
-
             -- JavaScript/TypeScript
             javascript = { "eslint_d" },
             typescript = { "eslint_d" },
             javascriptreact = { "eslint_d" },
             typescriptreact = { "eslint_d" },
-
             -- Lua
             lua = { "luacheck" },
-
             -- Shell
             sh = { "shellcheck" },
             bash = { "shellcheck" },
             zsh = { "shellcheck" },
-
             -- You can add more linters here as needed
             -- python = { "flake8", "mypy" },
             -- rust = { "clippy" },

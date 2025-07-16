@@ -1,8 +1,12 @@
--- vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
+require("core.mason-path")
+
+require("core.lsp")
 
 require("config.options")
-require("core.lazy")
 require("config.keymaps")
 require("config.autocmds")
-require("config.tabs")
-require("config.terminal")
+require("config.mason-verify")
+require("config.health-check")
+
+require("core.lazy")
+

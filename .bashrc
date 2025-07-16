@@ -20,9 +20,6 @@ set -o vi
 # keybinds
 bind -x '"\C-l":clear'
 
-# ---- PROMPT ----
-PS1="(\u)> "
-
 # ---- Environment ----
 # text editing
 export EDITOR=nvim
@@ -56,8 +53,6 @@ export MODULAR_HOME="$HOME/.modular"
 export MOJO_PATH="$MODULAR_HOME/pkg/packages.modular.com_mojo"
 # node
 export NVM_DIR="$HOME/.nvm"
-# bun
-export BUN_INSTALL="$HOME/.bun"
 # compilation flags
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 # Erlang
@@ -70,8 +65,6 @@ export PATH="$GOBIN:$PATH"
 export PATH="$MOJO_PATH/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/Users/charlie/.local/bin:$PATH"
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 # ---- Aliases ----
 alias ..='cd ..'
@@ -87,9 +80,7 @@ alias c='clear'
 alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
 alias diff='diff --color'
 
-alias v=nvim
-alias t='tmux'
-alias tks='tmux kill-server'
+alias n=nvim
 
 alias ga="git add"
 alias gcm="git commit -m"
@@ -129,7 +120,7 @@ source ~/.bashrc_private
 . "$HOME/.cargo/env"
 
 # ---- Starship (PROMPT) ----
-# eval "$(starship init bash)"
+eval "$(starship init bash)"
 
 # ---- Direnv (Environment Management) ----
 eval "$(direnv hook bash)"
@@ -137,11 +128,10 @@ eval "$(direnv hook bash)"
 # ---- Zoxide (Better cd) ----
 eval "$(zoxide init bash)"
 
-# bun
-
-alias claude="/Users/charlie/.claude/local/claude"
+# ---- mise ----
+eval "$(mise activate bash)"
 
 # ZVM
-export ZVM_INSTALL="$HOME/.zvm/self"
-export PATH="$PATH:$HOME/.zvm/bin"
-export PATH="$PATH:$ZVM_INSTALL/"
+# export ZVM_INSTALL="$HOME/.zvm/self"
+# export PATH="$PATH:$HOME/.zvm/bin"
+# export PATH="$PATH:$ZVM_INSTALL/"

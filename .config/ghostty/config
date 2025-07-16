@@ -1,5 +1,5 @@
-theme = light:catppuccin-latte,dark:catppuccin-mocha
+theme = GruvboxDarkHard 
 font-family = "Berkeley Mono"
-font-size = 16
+font-size = 18
 maximize = true
 keybind = shift+enter=text:\n
