@@ -69,6 +69,7 @@ export PATH="$REPOS/zigtools/zls/zig-out/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export PATH="$HOME/maelstrom:$PATH"
+export PATH="$HOME/nvim-macos-arm64/bin:$PATH"
 
 # ---- Aliases ----
 alias ..='cd ..'
