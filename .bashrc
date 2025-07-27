@@ -68,15 +68,16 @@ export PATH="/Users/charlie/.local/bin:$PATH"
 export PATH="$REPOS/zigtools/zls/zig-out/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export PATH="$HOME/maelstrom:$PATH"
 
 # ---- Aliases ----
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-# alias ls='eza -lh --group-directories-first --icons'
-# alias lsa='ls -a'
-# alias lt='eza --tree --level=2 --long --icons --git'
+alias ls='eza -lh --group-directories-first --icons'
+alias lsa='ls -a'
+alias lt='eza --tree --level=2 --long --icons --git'
 
 alias c='clear'
 
